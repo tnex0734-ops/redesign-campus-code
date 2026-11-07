@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusCode — The Student Hackathon Arena | Build. Compete. Ship.</title>
+  <meta name="description" content="CampusCode is the student hackathon arena. Discover verified university competitions, meet cross-campus collaborators via HackMate, and ship real products.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Typography: High-Legibility Modern Sans-Serif (Plus Jakarta Sans, Manrope, IBM Plex Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- White Spectrum Stylesheet -->
+  <link rel="stylesheet" href="assets/css/landing.css">
+</head>
+<body class="grid-canvas-bg">
+
+  <!-- Cosmic Rotating & Pulsating Stars Layer (Parallax + Gravity Reactive) -->
+  <div class="cosmic-stars-layer" id="cosmicStarsLayer" aria-hidden="true">
+    <div class="cosmic-star star-size-lg star-color-blue" style="top: 140px; left: 5%;" data-speed="0.25">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+    </div>
+    <div class="cosmic-star star-size-md star-color-orange" style="top: 260px; right: 7%;" data-speed="-0.35">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L13.8 8.2L20 6.4L15.8 11.2L20.6 15.6L14.4 15.8L13.8 22L10.2 15.8L4 15.6L8.8 11.2L4.6 6.4L10.8 8.2L12 2Z"/></svg>
+    </div>
+    <div class="cosmic-star star-size-sm star-color-azure" style="top: 520px; left: 16%;" data-speed="0.45">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+    </div>
+    <div class="cosmic-star star-size-lg star-color-amber" style="top: 900px; right: 12%;" data-speed="-0.25">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L13.8 8.2L20 6.4L15.8 11.2L20.6 15.6L14.4 15.8L13.8 22L10.2 15.8L4 15.6L8.8 11.2L4.6 6.4L10.8 8.2L12 2Z"/></svg>
+    </div>
+    <div class="cosmic-star star-size-md star-color-blue" style="top: 1420px; left: 4%;" data-speed="0.4">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+    </div>
+    <div class="cosmic-star star-size-lg star-color-orange" style="top: 1850px; right: 6%;" data-speed="-0.45">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L13.8 8.2L20 6.4L15.8 11.2L20.6 15.6L14.4 15.8L13.8 22L10.2 15.8L4 15.6L8.8 11.2L4.6 6.4L10.8 8.2L12 2Z"/></svg>
+    </div>
+    <div class="cosmic-star star-size-sm star-color-azure" style="top: 2320px; left: 10%;" data-speed="0.3">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+    </div>
+    <div class="cosmic-star star-size-md star-color-amber" style="top: 2820px; right: 9%;" data-speed="-0.3">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L13.8 8.2L20 6.4L15.8 11.2L20.6 15.6L14.4 15.8L13.8 22L10.2 15.8L4 15.6L8.8 11.2L4.6 6.4L10.8 8.2L12 2Z"/></svg>
+    </div>
+    <div class="cosmic-star star-size-lg star-color-blue" style="top: 3350px; left: 6%;" data-speed="0.5">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+    </div>
+    <div class="cosmic-star star-size-sm star-color-orange" style="top: 3900px; right: 11%;" data-speed="-0.35">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L13.8 8.2L20 6.4L15.8 11.2L20.6 15.6L14.4 15.8L13.8 22L10.2 15.8L4 15.6L8.8 11.2L4.6 6.4L10.8 8.2L12 2Z"/></svg>
+    </div>
+    <div class="cosmic-star star-size-md star-color-azure" style="top: 4420px; left: 12%;" data-speed="0.4">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"/></svg>
+    </div>
+    <div class="cosmic-star star-size-lg star-color-amber" style="top: 4900px; right: 7%;" data-speed="-0.5">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L13.8 8.2L20 6.4L15.8 11.2L20.6 15.6L14.4 15.8L13.8 22L10.2 15.8L4 15.6L8.8 11.2L4.6 6.4L10.8 8.2L12 2Z"/></svg>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       1. COMPACT EDITORIAL HEADER WITH BRAND IDENTITY & QUICK DEMO
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <!-- Authentic CampusCode Wordmark with Gradient CC Logo -->
+      <a href="index.html" class="brand-link" aria-label="CampusCode Arena Home">
+        <img src="assets/gradient-cc-logo.png" alt="CampusCode Logo" class="brand-logo-img">
+        <div class="brand-text-block">
+          <span class="brand-title">CAMPUSCODE</span>
+          <span class="brand-tagline">HACKATHON ARENA</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav-links" aria-label="Primary Navigation">
+        <a href="#about" class="nav-link-item">About</a>
+        <a href="#preview" class="nav-link-item">Arena Preview</a>
+        <a href="#workflow" class="nav-link-item">How it works</a>
+        <a href="#hackathons" class="nav-link-item">Hackathons</a>
+        <a href="#collaboration" class="nav-link-item">HackMate</a>
+      </nav>
+
+      <!-- Verified Header Actions -->
+      <div class="header-action-group">
+        <button type="button" class="btn-quick-demo" onclick="quickDemoLogin()" aria-label="Quick Demo Evaluator Login">
+          <span>⚡ Quick Demo</span>
+        </button>
+        <a href="login.html" class="btn-header-login">Log in</a>
+        <a href="register.html" class="btn-header-join">
+          <span>Join CampusCode</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        <button type="button" class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Open navigation menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Accessible Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-panel">
+      <div class="mobile-drawer-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <img src="assets/gradient-cc-logo.png" alt="" style="height:28px;">
+          <span class="brand-title">CAMPUSCODE</span>
+        </div>
+        <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">✕</button>
+      </div>
+      <nav class="mobile-drawer-links">
+        <a href="#about" onclick="closeMobileDrawer()">About</a>
+        <a href="#preview" onclick="closeMobileDrawer()">Arena Preview</a>
+        <a href="#workflow" onclick="closeMobileDrawer()">How It Works</a>
+        <a href="#hackathons" onclick="closeMobileDrawer()">Hackathons</a>
+        <a href="#collaboration" onclick="closeMobileDrawer()">HackMate</a>
+        <button type="button" class="btn-quick-demo" onclick="quickDemoLogin(); closeMobileDrawer();" style="justify-content:center; margin-top:8px;">⚡ Quick Demo Login</button>
+        <a href="login.html">Log In</a>
+        <a href="register.html" class="btn-hero-primary" style="text-align:center; margin-top:8px;">Join CampusCode ↗</a>
+      </nav>
+    </div>
+  </div>
+
+  <main id="mainContent">
+
+    <!-- ========================================================================
+         2. SIGNATURE SUSPENDED HERO SECTION (WHITE SPECTRUM + MANDALA)
+         Vibrant Square Tactile Artefacts, Icons Only, 100% Readable Hero Headline
+         ======================================================================== -->
+    <section class="hero-white-spectrum" id="hero">
+
+      <!-- Concentric Mandala Geometry Backdrop (Sarvam-inspired mathematical construction) -->
+      <div class="hero-mandala-backdrop" aria-hidden="true">
+        <img src="assets/svg/mandala-gateway.svg" alt="" aria-hidden="true">
+      </div>
+
+      <!-- Hero Center Reading Stage (Crisp White Scrim Behind Text) -->
+      <div class="container hero-center-stage">
+        <!-- Semantic Hero Headline with Vivid Spectrum Accent -->
+        <h1 class="hero-headline">
+          <span class="hero-headline-word">Build.</span>
+          <span class="hero-headline-word"><span class="gradient-text">Compete.</span></span>
+          <span class="hero-headline-word">Ship.</span>
+        </h1>
+
+        <p class="hero-subtext">
+          Find a challenge, meet your people and turn your next idea into something real. CampusCode brings student builders, cross-campus teams and hackathons into one connected arena.
+        </p>
+
+        <div class="hero-cta-cluster">
+          <a href="#hackathons" class="btn-hero-primary">
+            <span>Explore hackathons</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <button type="button" class="btn-hero-demo" onclick="quickDemoLogin()">
+            <span>⚡ Quick Demo Login</span>
+            <span aria-hidden="true">→</span>
+          </button>
+          <a href="#preview" class="btn-hero-secondary">
+            <span>Interactive Arena Preview</span>
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5 SUSPENDED SQUARE TACTILE ARTEFACTS (Unique Vibrant Colors & Icons Only) -->
+      <div class="suspended-assembly-system" aria-label="Interactive Suspended Tokens">
+
+        <!-- Artefact 01: Deep Indigo Square (Hackathons) -->
+        <div class="suspended-pivoted-unit" id="artefactChallengeUnit" title="View Active Competitions" tabindex="0" role="button">
+          <div class="suspended-upper-anchor" aria-hidden="true"></div>
+          <div class="suspended-line-cord" aria-hidden="true"></div>
+          <div class="suspended-knot-ring" aria-hidden="true"></div>
+          <div class="suspended-square-tile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span class="hanging-tooltip">Active Hackathons</span>
+          </div>
+        </div>
+
+        <!-- Artefact 02: Vibrant Terracotta Square (Team Up / HackMate) -->
+        <div class="suspended-pivoted-unit" id="artefactTeamUnit" title="Meet Teammates via HackMate" tabindex="0" role="button">
+          <div class="suspended-upper-anchor" aria-hidden="true"></div>
+          <div class="suspended-line-cord" aria-hidden="true"></div>
+          <div class="suspended-knot-ring" aria-hidden="true"></div>
+          <div class="suspended-square-tile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span class="hanging-tooltip">HackMate Match</span>
+          </div>
+        </div>
+
+        <!-- Artefact 03: Electric Azure Square (Shipped Projects) -->
+        <div class="suspended-pivoted-unit" id="artefactProjectUnit" title="Inspect Student Shipped Work" tabindex="0" role="button">
+          <div class="suspended-upper-anchor" aria-hidden="true"></div>
+          <div class="suspended-line-cord" aria-hidden="true"></div>
+          <div class="suspended-knot-ring" aria-hidden="true"></div>
+          <div class="suspended-square-tile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            <span class="hanging-tooltip">Shipped Projects</span>
+          </div>
+        </div>
+
+        <!-- Artefact 04: Sunlit Saffron Square (Timeline Flow) -->
+        <div class="suspended-pivoted-unit" id="artefactCalendarUnit" title="View 4-Stage Competition Timeline" tabindex="0" role="button">
+          <div class="suspended-upper-anchor" aria-hidden="true"></div>
+          <div class="suspended-line-cord" aria-hidden="true"></div>
+          <div class="suspended-knot-ring" aria-hidden="true"></div>
+          <div class="suspended-square-tile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span class="hanging-tooltip">4-Stage Flow</span>
+          </div>
+        </div>
+
+        <!-- Artefact 05: Rose Coral Square (Student Community) -->
+        <div class="suspended-pivoted-unit" id="artefactCommunityUnit" title="Explore Verified University Chapters" tabindex="0" role="button">
+          <div class="suspended-upper-anchor" aria-hidden="true"></div>
+          <div class="suspended-line-cord" aria-hidden="true"></div>
+          <div class="suspended-knot-ring" aria-hidden="true"></div>
+          <div class="suspended-square-tile">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span class="hanging-tooltip">Student Arena</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         3. TRANSITION STRIP (REACT BITS RIBBONTYPE 3D KINETIC MARQUEE)
+         ======================================================================== -->
+    <div class="transition-index-strip" id="ribbonTypeContainer" aria-label="CampusCode Core Values">
+      <div class="strip-track-items">
+        <span>IDEAS</span>
+        <span class="strip-glyph"></span>
+        <span>PEOPLE</span>
+        <span class="strip-glyph"></span>
+        <span>PROJECTS</span>
+        <span class="strip-glyph"></span>
+        <span>POSSIBILITY</span>
+        <span class="strip-glyph"></span>
+        <span>DISCOVER</span>
+        <span class="strip-glyph"></span>
+        <span>TEAM UP</span>
+        <span class="strip-glyph"></span>
+        <span>BUILD</span>
+        <span class="strip-glyph"></span>
+        <span>SHIP</span>
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         4. INTERACTIVE PRODUCT PREVIEW (RevenueX White Dashboard Homage)
+         ======================================================================== -->
+    <section class="section-product-preview" id="preview">
+      <!-- React Bits PatternWaves WebGL2 Background Shader (Silk Preset / Orange Spectrum) -->
+      <div id="patternWavesBg" class="pattern-waves-stage" aria-hidden="true"></div>
+
+      <!-- Floating Celestial Geometric Accents (Sarvam Mandala Star Linework) -->
+      <div class="floating-celestial-star" style="top:40px; right:60px;" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="32" height="32" fill="none">
+          <path d="M 20,2 L 23,17 L 38,20 L 23,23 L 20,38 L 17,23 L 2,20 L 17,17 Z" stroke="#38BDF8" stroke-width="1.5" fill="rgba(56, 189, 248, 0.08)"/>
+          <circle cx="20" cy="20" r="3" fill="#2563EB"/>
+        </svg>
+      </div>
+      <div class="floating-celestial-star" style="bottom:60px; left:50px;" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="28" height="28" fill="none">
+          <circle cx="20" cy="20" r="14" stroke="#FDBA74" stroke-width="1" stroke-dasharray="3 3"/>
+          <path d="M 20,6 L 20,34 M 6,20 L 34,20" stroke="#EA580C" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="section-head-center">
+          <h2 class="section-title-large">Where student engineering happens.</h2>
+          <p class="section-desc-lead">
+            Experience the real CampusCode student interface. Test live preflight validation, explore HackMate builder matches, and inspect cryptographic credentials.
+          </p>
+        </div>
+
+        <!-- RevenueX-Inspired White Dashboard Frame -->
+        <div class="dashboard-preview-frame">
+          <!-- Interactive Switcher Header -->
+          <div class="preview-tabs-header">
+            <div class="preview-switcher-pills">
+              <button type="button" class="preview-tab-btn active" onclick="switchProductPreview('workspace', this)">
+                ⚡ Round 1 Live Workspace
+              </button>
+              <button type="button" class="preview-tab-btn" onclick="switchProductPreview('hackmate', this)">
+                ✨ HackMate Builder Graph
+              </button>
+              <button type="button" class="preview-tab-btn" onclick="switchProductPreview('digitalid', this)">
+                🪪 Digital Student ID
+              </button>
+            </div>
+
+            <div class="preview-live-badge">
+              <span class="coord-dot"></span>
+              <span>INTERACTIVE SANDBOX</span>
+            </div>
+          </div>
+
+          <!-- Tab 1: Live Workspace Preview -->
+          <div class="preview-panel-view active" id="preview-panel-workspace">
+            <div class="preview-ws-grid">
+              <div class="preview-feature-box">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span class="font-mono" style="font-size:11px; color:var(--spec-terracotta); font-weight:700;">REBUILD '26 · ROUND 1 ACTIVE</span>
+                  <span class="font-mono" id="landingPreviewTimer" style="font-size:11px; color:var(--ink-muted);">DEADLINE: TODAY 10:00 PM IST</span>
+                </div>
+                <h3 style="font-size:22px; font-weight:800;">Faithful Recreation Hackathon</h3>
+                <p style="font-size:14px; color:var(--ink-secondary); line-height:1.5;">
+                  Participant: <strong>sai'steam (Sai Harshith)</strong> · Recreate 4 core CampusCode portal views (Landing, Login, Register, Student Workspace) in desktop and mobile responsive layout. Zero build steps, pure semantic craft.
+                </p>
+
+                <!-- IdeaCheck Scores Simulation -->
+                <div class="preview-scores-row">
+                  <div>
+                    <strong>88%</strong>
+                    <span>NOVELTY SCORE</span>
+                  </div>
+                  <div>
+                    <strong>94%</strong>
+                    <span>FEASIBILITY</span>
+                  </div>
+                  <div>
+                    <strong>100%</strong>
+                    <span>COMPLIANCE</span>
+                  </div>
+                </div>
+
+                <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:8px;">
+                  <a href="student.html?tab=workspace&sub=submit" class="btn-hero-primary" style="padding:10px 18px; font-size:11.5px;">
+                    Open Live Submission Form ↗
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right: Preflight Checklist -->
+              <div style="background:var(--canvas); border:1px solid var(--hairline); border-radius:var(--radius-lg); padding:20px; display:flex; flex-direction:column; justify-content:space-between; gap:14px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <span class="font-mono" style="font-size:11px; font-weight:700; color:var(--spec-blue);">AUTOMATED PREFLIGHT ENGINE</span>
+                  <span class="font-mono" style="font-size:9.5px; background:rgba(37,99,235,0.08); color:var(--spec-blue); padding:2px 8px; border-radius:12px; font-weight:700;">AST SCANNER v2.6</span>
+                </div>
+
+                <!-- Technical Code Inspection Vector Diagram -->
+                <div class="preflight-illu-diagram">
+                  <!-- Header row with mock file & laser beam indicator -->
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                    <div style="display:flex; gap:4px; align-items:center;">
+                      <span style="width:7px; height:7px; border-radius:50%; background:#EF4444;"></span>
+                      <span style="width:7px; height:7px; border-radius:50%; background:#F59E0B;"></span>
+                      <span style="width:7px; height:7px; border-radius:50%; background:#10B981;"></span>
+                      <span style="font-family:var(--font-mono); font-size:9px; color:#94A3B8; margin-left:6px;">evaluate.ts</span>
+                    </div>
+                    <span style="font-family:var(--font-mono); font-size:9px; color:#38BDF8; display:flex; align-items:center; gap:4px;">
+                      <span class="laser-dot-pulse"></span> SCANNING ACTIVE
+                    </span>
+                  </div>
+
+                  <!-- SVG Code Matrix & AST Tree Diagram -->
+                  <svg viewBox="0 0 320 80" width="100%" height="80" fill="none">
+                    <!-- Scanning laser beam line -->
+                    <line x1="10" y1="22" x2="310" y2="22" stroke="url(#preflightLaserGrad)" stroke-width="2" opacity="0.9" />
+                    <!-- Mock Code Syntax lines -->
+                    <rect x="12" y="6" width="60" height="4" rx="2" fill="#38BDF8" opacity="0.8"/>
+                    <rect x="78" y="6" width="40" height="4" rx="2" fill="#818CF8" opacity="0.7"/>
+                    <rect x="12" y="16" width="30" height="4" rx="2" fill="#F472B6" opacity="0.8"/>
+                    <rect x="48" y="16" width="90" height="4" rx="2" fill="#E2E8F0" opacity="0.85"/>
+                    <rect x="144" y="16" width="50" height="4" rx="2" fill="#38BDF8" opacity="0.6"/>
+                    
+                    <!-- AST Graph Nodes -->
+                    <line x1="220" y1="18" x2="250" y2="38" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="3 3"/>
+                    <line x1="250" y1="38" x2="285" y2="24" stroke="#818CF8" stroke-width="1.5"/>
+                    <line x1="250" y1="38" x2="275" y2="58" stroke="#34D399" stroke-width="1.5"/>
+                    <circle cx="220" cy="18" r="4.5" fill="#38BDF8"/>
+                    <circle cx="250" cy="38" r="5" fill="#818CF8"/>
+                    <circle cx="285" cy="24" r="4" fill="#FBBF24"/>
+                    <circle cx="275" cy="58" r="4.5" fill="#34D399"/>
+
+                    <!-- Lower Code Lines -->
+                    <rect x="12" y="32" width="110" height="4" rx="2" fill="#E2E8F0" opacity="0.6"/>
+                    <rect x="128" y="32" width="40" height="4" rx="2" fill="#34D399" opacity="0.8"/>
+                    <rect x="12" y="44" width="70" height="4" rx="2" fill="#818CF8" opacity="0.7"/>
+                    <rect x="88" y="44" width="85" height="4" rx="2" fill="#E2E8F0" opacity="0.5"/>
+                    <rect x="12" y="56" width="130" height="4" rx="2" fill="#F59E0B" opacity="0.7"/>
+
+                    <!-- Gradient Definition -->
+                    <defs>
+                      <linearGradient id="preflightLaserGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#38BDF8" stop-opacity="0" />
+                        <stop offset="50%" stop-color="#38BDF8" stop-opacity="1" />
+                        <stop offset="70%" stop-color="#818CF8" stop-opacity="1" />
+                        <stop offset="100%" stop-color="#F43F5E" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+
+                <!-- Checklist with verified status pills -->
+                <div style="display:flex; flex-direction:column; gap:8px; font-size:12px;">
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="display:flex; align-items:center; gap:6px;">
+                      <span style="color:#10B981; font-weight:800;">✓</span>
+                      <span>GitHub Clean Working Tree</span>
+                    </span>
+                    <span class="font-mono" style="font-size:10px; color:#10B981; font-weight:700;">PASSED</span>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="display:flex; align-items:center; gap:6px;">
+                      <span style="color:#10B981; font-weight:800;">✓</span>
+                      <span>Live URL 200 OK Response</span>
+                    </span>
+                    <span class="font-mono" style="font-size:10px; color:#10B981; font-weight:700;">18ms CDN</span>
+                  </div>
+                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <span style="display:flex; align-items:center; gap:6px;">
+                      <span style="color:#10B981; font-weight:800;">✓</span>
+                      <span>Viewport 360px–2048px Tested</span>
+                    </span>
+                    <span class="font-mono" style="font-size:10px; color:#10B981; font-weight:700;">NO OVERFLOW</span>
+                  </div>
+                </div>
+
+                <div style="display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:10.5px; padding:8px 12px; background:var(--canvas-subtle); border-radius:var(--radius-md); border:1px solid var(--hairline);">
+                  <span style="color:var(--ink-muted);">SHA-256: 0x9b32...f87e</span>
+                  <span style="color:#10B981; font-weight:700;">VERIFIED LOCK</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: HackMate Teammate Graph Preview -->
+          <div class="preview-panel-view" id="preview-panel-hackmate">
+            <!-- Interactive Visual Synergy Node Graph Diagram -->
+            <div class="hackmate-node-graph-stage">
+              <svg viewBox="0 0 700 130" width="100%" height="130" fill="none">
+                <!-- Glowing Bezier Synergy Flow Lines -->
+                <path d="M 140,65 C 240,25 280,25 360,65" stroke="url(#hackmateLineGrad1)" stroke-width="2.5" stroke-dasharray="4 4"/>
+                <path d="M 360,65 C 440,105 480,105 560,65" stroke="url(#hackmateLineGrad2)" stroke-width="2.5" stroke-dasharray="4 4"/>
+                <path d="M 140,65 C 260,120 440,120 560,65" stroke="#E2E8F0" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+                <!-- Node 1: Aditi (Frontend & UI) -->
+                <circle cx="140" cy="65" r="32" fill="#FFFFFF" stroke="#2563EB" stroke-width="2.2" filter="drop-shadow(0 4px 10px rgba(37,99,235,0.15))"/>
+                <text x="140" y="62" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#1B365D" text-anchor="middle">AR</text>
+                <text x="140" y="76" font-family="monospace" font-size="8.5" font-weight="700" fill="#2563EB" text-anchor="middle">96% SYNERGY</text>
+
+                <!-- Center Synergy Hub: ReBuild '26 Squad -->
+                <circle cx="360" cy="65" r="36" fill="#1B365D" stroke="#EA580C" stroke-width="2.5" filter="drop-shadow(0 6px 14px rgba(27,54,93,0.2))"/>
+                <text x="360" y="60" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" text-anchor="middle">REBUILD '26</text>
+                <text x="360" y="74" font-family="monospace" font-size="8.5" font-weight="700" fill="#FDBA74" text-anchor="middle">SQUAD MATCH</text>
+
+                <!-- Node 2: Karthik (Systems & Cloud) -->
+                <circle cx="560" cy="65" r="32" fill="#FFFFFF" stroke="#EA580C" stroke-width="2.2" filter="drop-shadow(0 4px 10px rgba(234,88,12,0.15))"/>
+                <text x="560" y="62" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#1B365D" text-anchor="middle">KV</text>
+                <text x="560" y="76" font-family="monospace" font-size="8.5" font-weight="700" fill="#EA580C" text-anchor="middle">92% SYNERGY</text>
+
+                <defs>
+                  <linearGradient id="hackmateLineGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#2563EB"/>
+                    <stop offset="100%" stop-color="#EA580C"/>
+                  </linearGradient>
+                  <linearGradient id="hackmateLineGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#EA580C"/>
+                    <stop offset="100%" stop-color="#2563EB"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:18px;">
+              <div style="background:var(--canvas-subtle); border:1px solid var(--hairline); border-radius:var(--radius-lg); padding:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                  <strong style="font-size:15px;">Aditi Roy</strong>
+                  <span class="font-mono" style="font-size:10px; background:#FFF; border:1px solid var(--spec-blue); color:var(--spec-blue); padding:2px 6px; border-radius:4px; font-weight:700;">96% MATCH</span>
+                </div>
+                <span style="font-size:12.5px; color:var(--ink-muted); display:block; margin-bottom:10px;">Frontend & UI Design · IIT Madras</span>
+                <div style="display:flex; gap:4px; flex-wrap:wrap;">
+                  <span class="role-skill-chip">React</span>
+                  <span class="role-skill-chip">Tailwind</span>
+                  <span class="role-skill-chip">Figma</span>
+                </div>
+              </div>
+
+              <div style="background:var(--canvas-subtle); border:1px solid var(--hairline); border-radius:var(--radius-lg); padding:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                  <strong style="font-size:15px;">Karthik V</strong>
+                  <span class="font-mono" style="font-size:10px; background:#FFF; border:1px solid var(--spec-orange); color:var(--spec-orange); padding:2px 6px; border-radius:4px; font-weight:700;">92% MATCH</span>
+                </div>
+                <span style="font-size:12.5px; color:var(--ink-muted); display:block; margin-bottom:10px;">Systems & Cloud · Anna University</span>
+                <div style="display:flex; gap:4px; flex-wrap:wrap;">
+                  <span class="role-skill-chip">Go</span>
+                  <span class="role-skill-chip">Docker</span>
+                  <span class="role-skill-chip">PostgreSQL</span>
+                </div>
+              </div>
+
+              <div style="background:var(--canvas-subtle); border:1px solid var(--hairline); border-radius:var(--radius-lg); padding:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                  <strong style="font-size:15px;">Priya Sharma</strong>
+                  <span class="font-mono" style="font-size:10px; background:#FFF; border:1px solid var(--spec-sky); color:var(--spec-sky); padding:2px 6px; border-radius:4px; font-weight:700;">89% MATCH</span>
+                </div>
+                <span style="font-size:12.5px; color:var(--ink-muted); display:block; margin-bottom:10px;">AI & Pipelines · BITS Pilani</span>
+                <div style="display:flex; gap:4px; flex-wrap:wrap;">
+                  <span class="role-skill-chip">Python</span>
+                  <span class="role-skill-chip">PyTorch</span>
+                  <span class="role-skill-chip">FastAPI</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:flex-end; margin-top:20px;">
+              <a href="student.html?tab=workspace&sub=team" class="btn-hero-primary" style="padding:10px 18px; font-size:11.5px;">
+                Launch Full HackMate Finder ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Tab 3: Digital Pass Preview -->
+          <div class="preview-panel-view" id="preview-panel-digitalid">
+            <div style="max-width:440px; margin:0 auto; background:#171719; color:#FFF; border-radius:var(--radius-lg); padding:28px; border:1px solid #333;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;">
+                <span class="font-mono" style="font-size:11px; letter-spacing:1px;">CAMPUSCODE DIGITAL ID</span>
+                <span class="font-mono" style="font-size:10px; color:#A8E62E;">VERIFIED 2026</span>
+              </div>
+              <h3 style="font-size:20px; font-weight:800; margin-bottom:2px;">Sai Harshith</h3>
+              <div class="font-mono" style="font-size:12px; color:var(--spec-sky); margin-bottom:6px;">CC-2026-8841</div>
+              <p style="font-size:12px; color:#8E8E98; margin-bottom:18px;">College of Engineering, Guindy</p>
+              <div style="display:flex; justify-content:space-between; align-items:flex-end; border-top:1px solid #28282D; padding-top:14px;">
+                <div class="font-mono" style="font-size:10px; color:#686873;">
+                  <div>ROLE: STUDENT BUILDER</div>
+                  <div>HASH: 0x9b32...f87e</div>
+                </div>
+                <div style="width:52px; height:52px; background:#FFF; border-radius:4px; padding:3px; display:flex; align-items:center; justify-content:center;">
+                  <svg viewBox="0 0 100 100" width="100%" height="100%" fill="#000">
+                    <rect x="10" y="10" width="24" height="24"/>
+                    <rect x="66" y="10" width="24" height="24"/>
+                    <rect x="10" y="66" width="24" height="24"/>
+                    <rect x="42" y="42" width="16" height="16"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div style="text-align:center; margin-top:18px;">
+              <a href="student.html?tab=digital-id" class="btn-header-login" style="font-size:12px;">
+                View Your Verified Credential in Portal ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         5. FOUR TACTILE ILLUSTRATION CARDS (IMAGE 3 REFERENCE STYLE)
+         "Code signing made easy", "Measure builder affinity", "Distribution. Sorted!", "Performance. Benchmarked!"
+         ======================================================================== -->
+    <section class="section-workflow" id="workflow">
+      <!-- React Bits GradientASCII WebGL2 Character Matrix Background -->
+      <div id="gradientAsciiBg" class="gradient-ascii-stage" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="section-head-center">
+          <h2 class="section-title-large">From first idea to shipped work.</h2>
+          <p class="section-desc-lead">
+            Every CampusCode competition follows a structured progression designed to take student engineers from problem discovery to verified production release.
+          </p>
+        </div>
+
+        <!-- 4 Tactile Illustration Cards in 2x2 Grid (Exact Image 3 Layout) -->
+        <div class="workflow-cards-2x2">
+
+          <!-- Card 1: Code signing made easy -->
+          <div class="tactile-feature-card">
+            <div class="card-illustration-stage">
+              <!-- Binary matrix backdrop code -->
+              <div class="binary-matrix-code" aria-hidden="true">
+                1 &nbsp; 0 &nbsp; 0 &nbsp; 1 &nbsp; 0 &nbsp; 1 &nbsp; 1 &nbsp; 0 &nbsp; 0 &nbsp; 1<br>
+                1 &nbsp; 1 &nbsp; 1 &nbsp; 0 &nbsp; 1 &nbsp; 0 &nbsp; 0 &nbsp; 1 &nbsp; 1 &nbsp; 0<br>
+                1 &nbsp; 0 &nbsp; 1 &nbsp; 0 &nbsp; 1 &nbsp; 1 &nbsp; 0 &nbsp; 0 &nbsp; 1 &nbsp; 0<br>
+                0 &nbsp; 1 &nbsp; 1 &nbsp; 1 &nbsp; 0 &nbsp; 0 &nbsp; 1 &nbsp; 0 &nbsp; 1 &nbsp; 1<br>
+                1 &nbsp; 0 &nbsp; 0 &nbsp; 1 &nbsp; 0 &nbsp; 1 &nbsp; 1 &nbsp; 0 &nbsp; 0 &nbsp; 1<br>
+                0 &nbsp; 1 &nbsp; 0 &nbsp; 1 &nbsp; 1 &nbsp; 0 &nbsp; 1 &nbsp; 1 &nbsp; 0 &nbsp; 1
+              </div>
+
+              <!-- Floating Browser Window with Signature & Stylus Pen -->
+              <div class="signing-browser-card">
+                <div class="signing-card-header">
+                  <span></span><span></span><span></span>
+                  <span class="font-mono" style="font-size:9px; color:#2563EB; font-weight:700; margin-left:auto;">ideacheck.preflight</span>
+                </div>
+                <div class="signing-signature-row">
+                  <svg width="120" height="28" viewBox="0 0 120 28" fill="none">
+                    <path d="M 6,18 C 18,6 26,24 38,10 C 46,2 52,22 64,12 C 72,5 80,18 92,11 C 98,6 106,14 114,10" stroke="#2563EB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36' fill='none'><path d='M28 4L32 8L14 26L8 28L10 22L28 4Z' fill='%232563EB'/><path d='M26 6L30 10' stroke='white' stroke-width='2'/><circle cx='8' cy='28' r='3' fill='%230F0F12'/></svg>" class="signing-quill-pen" alt="Stylus Pen">
+                </div>
+                <!-- Golden Wax Seal & Ribbons -->
+                <div class="gold-wax-seal" title="Cryptographically Verified Submission">
+                  <span>★</span>
+                  <div class="gold-wax-ribbon"></div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="tactile-card-title">Cryptographic code signing</h3>
+            <p class="tactile-card-desc">
+              IdeaCheck generates tamper-proof SHA-256 submission hashes with hardware timestamping. Every line of code and container artifact is cryptographically certified before faculty judging.
+            </p>
+          </div>
+
+          <!-- Card 2: Measure builder affinity / App success -->
+          <div class="tactile-feature-card">
+            <div class="card-illustration-stage">
+              <!-- Collegiate Campus Pills -->
+              <div class="platform-pills-cluster">
+                <span class="platform-pill">🏛️ IIT Madras</span>
+                <span class="platform-pill">⚡ Anna Univ</span>
+                <span class="platform-pill">🚀 BITS Pilani</span>
+              </div>
+
+              <!-- Bar Equalizer Chart Box with Multi-Color Segments -->
+              <div class="equalizer-chart-box">
+                <div class="equalizer-bar-col" title="Frontend Synergy">
+                  <div class="equalizer-bar-fill bar-dark" style="height:62%;"></div>
+                </div>
+                <div class="equalizer-bar-col" title="Backend Depth">
+                  <div class="equalizer-bar-fill bar-dark" style="height:44%;"></div>
+                </div>
+                <div class="equalizer-bar-col" title="System Reliability">
+                  <div class="equalizer-bar-fill bar-dark" style="height:82%;"></div>
+                </div>
+                <!-- Highlight Segmented Bar: Blue, Orange, Amber -->
+                <div class="equalizer-bar-col" title="HackMate 96% Match" style="gap:3px;">
+                  <div style="background:#F59E0B; height:18px; border-radius:4px;"></div>
+                  <div style="background:#EA580C; height:24px; border-radius:4px;"></div>
+                  <div style="background:#2563EB; height:46px; border-radius:4px;"></div>
+                </div>
+              </div>
+            </div>
+
+            <h3 class="tactile-card-title">Cross-campus builder synergy</h3>
+            <p class="tactile-card-desc">
+              Match complementary skillsets through the HackMate graph. Connect frontend engineers with distributed systems and AI builders across top Indian engineering universities.
+            </p>
+          </div>
+
+          <!-- Card 3: Instant Sandbox & Distribution -->
+          <div class="tactile-feature-card">
+            <div class="card-illustration-stage">
+              <!-- Universal URL Badge -->
+              <div class="distribution-url-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <span>rebuild26.campuscode.co.in</span>
+              </div>
+
+              <!-- Laptop Wireframe with Base Lip -->
+              <div class="laptop-wireframe">
+                <div class="laptop-base-lip"></div>
+              </div>
+
+              <!-- 3 Floating Platform Cards Pop Up Over Laptop -->
+              <div class="floating-platform-card plat-apple" title="React / Next.js Live Sandbox">
+                <span class="font-mono" style="font-size:11px; font-weight:800; color:#0F0F12;">Next</span>
+              </div>
+
+              <div class="floating-platform-card plat-windows" title="Python / FastAPI Service">
+                <span class="font-mono" style="font-size:11px; font-weight:800; color:#2563EB;">FastAPI</span>
+                <!-- Mouse Cursor Clicking -->
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="#0F0F12" stroke="#FFFFFF" stroke-width="1.5" style="position:absolute; bottom:-6px; right:-6px;">
+                  <path d="M3 3l7 18 3-7 7-3L3 3z"/>
+                </svg>
+              </div>
+
+              <div class="floating-platform-card plat-linux" title="Docker OCI Container">
+                <span class="font-mono" style="font-size:10px; font-weight:800; color:#0F0F12;">Docker</span>
+              </div>
+            </div>
+
+            <h3 class="tactile-card-title">Instant sandbox & live deploy</h3>
+            <p class="tactile-card-desc">
+              Our automated build harness verifies preview URLs, Docker containers, and test suites on edge CDNs. Evaluators test real running code with zero manual setup.
+            </p>
+          </div>
+
+          <!-- Card 4: Performance. Benchmarked! -->
+          <div class="tactile-feature-card">
+            <div class="card-illustration-stage">
+              <!-- Background subtle window card -->
+              <div style="position:absolute; inset:24px 32px; background:#FFFFFF; border:1px solid #ECECF4; border-radius:12px; opacity:0.85; box-shadow:0 4px 14px rgba(15,15,18,0.03);">
+                <div style="padding:10px 14px; display:flex; gap:5px; align-items:center;">
+                  <span style="width:6px; height:6px; border-radius:50%; background:#E4E4EE;"></span>
+                  <span style="width:6px; height:6px; border-radius:50%; background:#E4E4EE;"></span>
+                  <span style="width:6px; height:6px; border-radius:50%; background:#E4E4EE;"></span>
+                  <span class="font-mono" style="font-size:9px; color:#EA580C; font-weight:700; margin-left:auto;">100% PREFLIGHT</span>
+                </div>
+              </div>
+
+              <!-- 3D Speedometer Gauge Dial -->
+              <div class="speedometer-dial-stage">
+                <div class="gauge-circular-arc"></div>
+                <div class="gauge-center-needle" id="gaugeCenterNeedle"></div>
+                <div class="gauge-center-hub">cc</div>
+              </div>
+            </div>
+
+            <h3 class="tactile-card-title">Deterministic rubric benchmarking</h3>
+            <p class="tactile-card-desc">
+              Cold-start latency, bundle size, viewport responsiveness, and API error rates are measured deterministically against competition standards.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         6. SECTION 03 REDESIGN: TRANSLUCENT TAB-SHAPED IMAGE FOLDERS
+         Source Pattern from User Specification (Framer Motion / Spring-like Tabs)
+         ======================================================================== -->
+    <section class="section-hackathons section-image-folders" id="hackathons">
+
+      <!-- Reusable SVG ClipPaths for Translucent Folders -->
+      <svg width="0" height="0" style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true">
+        <defs>
+          <clipPath id="folder-back" clipPathUnits="objectBoundingBox">
+            <path d="M0,.24 Q0,.14 .07,.14 H.44 Q.48,.14 .51,.09 L.56,.03 Q.59,0 .64,0 H.93 Q1,0 1,.1 V.9 Q1,1 .93,1 H.07 Q0,1 0,.9 Z" />
+          </clipPath>
+          <clipPath id="folder-front" clipPathUnits="objectBoundingBox">
+            <path d="M0,.1 Q0,0 .07,0 H.35 Q.39,0 .42,.04 L.48,.12 Q.51,.16 .56,.16 H.93 Q1,.16 1,.26 V.9 Q1,1 .93,1 H.07 Q0,1 0,.9 Z" />
+          </clipPath>
+        </defs>
+      </svg>
+
+      <!-- Active Serpentine Ribbon Flanks with Animated Moving Shaders -->
+      <div class="serpent-shader-flank left" aria-hidden="true">
+        <svg viewBox="0 0 400 500" fill="none">
+          <path class="serpent-animated-path" d="M -40,60 C 140,110 240,10 340,130 C 440,250 190,330 270,460" stroke="url(#spectrumGradient)" stroke-width="2.5" stroke-linecap="round" opacity="0.65" fill="none" />
+          <path class="serpent-animated-path" d="M -70,130 C 110,180 210,80 310,200 C 410,320 160,400 240,530" stroke="url(#spectrumGradient)" stroke-width="1.2" stroke-linecap="round" opacity="0.35" stroke-dasharray="8 8" fill="none" />
+        </svg>
+      </div>
+      <div class="serpent-shader-flank right" aria-hidden="true">
+        <svg viewBox="0 0 400 500" fill="none">
+          <path class="serpent-animated-path" d="M 440,60 C 260,110 160,10 60,130 C -40,250 210,330 130,460" stroke="url(#spectrumGradient)" stroke-width="2.5" stroke-linecap="round" opacity="0.65" fill="none" />
+          <path class="serpent-animated-path" d="M 470,130 C 290,180 190,80 90,200 C -10,320 240,400 160,530" stroke="url(#spectrumGradient)" stroke-width="1.2" stroke-linecap="round" opacity="0.35" stroke-dasharray="8 8" fill="none" />
+        </svg>
+      </div>
+
+      <div class="container">
+        <div class="section-head-center">
+          <h2 class="section-title-large">Find your next challenge.</h2>
+          <p class="section-desc-lead">
+            Interactive tab folders housing live competitions, sprint tracks and hackathon archives. Hover or click folders to fan out challenge specifications.
+          </p>
+        </div>
+
+        <!-- Filter Row & Instant Search Field -->
+        <div class="hackathons-filter-row">
+          <div class="filter-pills-wrap">
+            <button type="button" class="landing-filter-btn active" data-category="all" onclick="filterFolders('all', this)">All Tracks</button>
+            <button type="button" class="landing-filter-btn" data-category="ai" onclick="filterFolders('ai', this)">AI Innovation</button>
+            <button type="button" class="landing-filter-btn" data-category="web" onclick="filterFolders('web', this)">Web & Frontend</button>
+            <button type="button" class="landing-filter-btn" data-category="systems" onclick="filterFolders('systems', this)">Systems & Cloud</button>
+            <button type="button" class="landing-filter-btn" data-category="smart" onclick="filterFolders('smart', this)">SmartCampus IoT</button>
+          </div>
+
+          <div class="landing-search-field">
+            <span style="color:var(--ink-faint);">🔍</span>
+            <input type="text" id="landingFolderSearch" placeholder="Search challenges or tech stacks..." oninput="handleFolderSearch(event)">
+          </div>
+        </div>
+
+        <!-- 4 Translucent Tab-Shaped ImageFolders -->
+        <div class="image-folders-grid" id="imageFoldersGrid">
+
+          <!-- Folder 1: AI Innovation Sprint (Indigo / Blue Theme) -->
+          <div class="image-folder-wrapper folder-theme-ai" data-category="ai" tabindex="0" role="region" aria-label="AI Innovation folder" onclick="toggleFolderPin(this)">
+            <div class="image-folder-back"></div>
+            
+            <!-- File 0 (Left Fan) -->
+            <div class="image-folder-card-file file-index-0">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:#2563EB; font-weight:700;">AGENT FLOW</span>
+                <span class="font-mono" style="font-size:9.5px; color:var(--ink-muted);">NOV 6–8</span>
+              </div>
+              <div>
+                <strong style="font-size:13.5px; color:var(--ink);">Autonomous Agents</strong>
+                <p style="font-size:11px; color:var(--ink-muted); margin-top:2px;">Multi-agent tool routing & memory</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:var(--ink-faint);">₹50,000 PRIZE</span>
+                <a href="login.html" class="btn-hero-primary" style="padding:4px 10px; font-size:10px;">Enter ↗</a>
+              </div>
+            </div>
+
+            <!-- File 1 (Center Fan) -->
+            <div class="image-folder-card-file file-index-1">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:#1E3A8A; font-weight:800;">● LIVE NOW</span>
+                <span class="font-mono" style="font-size:9.5px; color:var(--ink-muted);">ROUND 1</span>
+              </div>
+              <div>
+                <strong style="font-size:13.5px; color:var(--ink);">AI Innovation Sprint</strong>
+                <!-- AI Domain SVG Diagram -->
+                <div class="folder-card-illu">
+                  <svg viewBox="0 0 160 48" width="100%" height="48" fill="none">
+                    <circle cx="20" cy="24" r="5" fill="#3B82F6"/>
+                    <line x1="25" y1="24" x2="60" y2="14" stroke="#93C5FD" stroke-width="1.2"/>
+                    <line x1="25" y1="24" x2="60" y2="34" stroke="#93C5FD" stroke-width="1.2"/>
+                    <circle cx="65" cy="14" r="4.5" fill="#60A5FA"/>
+                    <circle cx="65" cy="34" r="4.5" fill="#60A5FA"/>
+                    <line x1="70" y1="14" x2="105" y2="24" stroke="#93C5FD" stroke-width="1.2"/>
+                    <line x1="70" y1="34" x2="105" y2="24" stroke="#93C5FD" stroke-width="1.2"/>
+                    <circle cx="110" cy="24" r="5" fill="#1D4ED8"/>
+                    <path d="M 120,24 Q 135,16 150,24" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <p style="font-size:10.5px; color:var(--ink-muted); margin-top:1px;">Multimodal models for student life</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:9.5px; color:#2563EB; font-weight:700;">TEAMS 2–4</span>
+                <a href="login.html" class="btn-hero-primary" style="padding:4px 10px; font-size:10px;">Enter ↗</a>
+              </div>
+            </div>
+
+            <!-- File 2 (Right Fan) -->
+            <div class="image-folder-card-file file-index-2">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:#38BDF8; font-weight:700;">LOCAL LLM</span>
+                <span class="font-mono" style="font-size:9.5px; color:var(--ink-muted);">ONLINE</span>
+              </div>
+              <div>
+                <strong style="font-size:13.5px; color:var(--ink);">Edge Inference Core</strong>
+                <p style="font-size:11px; color:var(--ink-muted); margin-top:2px;">WebGPU & on-device intelligence</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:var(--ink-faint);">HARDWARE PASS</span>
+                <a href="login.html" class="btn-hero-primary" style="padding:4px 10px; font-size:10px;">Enter ↗</a>
+              </div>
+            </div>
+
+            <div class="image-folder-front"></div>
+
+            <div class="image-folder-control">
+              <div>
+                <div class="folder-label-title">AI Innovation Sprint</div>
+                <div class="folder-count-pill">3 Challenges · Click to Pin</div>
+              </div>
+              <button type="button" class="folder-action-circle" aria-label="Toggle AI folder preview">
+                <span>+</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Folder 2: Web & Frontend Experience (Azure / Cyan Theme) -->
+          <div class="image-folder-wrapper folder-theme-web" data-category="web" tabindex="0" role="region" aria-label="Web & Frontend folder" onclick="toggleFolderPin(this)">
+            <div class="image-folder-back"></div>
+            
+            <div class="image-folder-card-file file-index-0">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:#0284C7; font-weight:700;">CANVAS DOM</span>
+                <span class="font-mono" style="font-size:9.5px; color:var(--ink-muted);">NOV 14</span>
+              </div>
+              <div>
+                <strong style="font-size:13.5px; color:var(--ink);">Tactile UI Canvas</strong>
+                <p style="font-size:11px; color:var(--ink-muted); margin-top:2px;">Dynamic SVG & responsive layouts</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:var(--ink-faint);">₹25,000 PRIZE</span>
+                <a href="register.html" class="btn-hero-primary" style="padding:4px 10px; font-size:10px;">Join ↗</a>
+              </div>
+            </div>
+
+            <div class="image-folder-card-file file-index-1">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:#0284C7; font-weight:800;">OPEN NOW</span>
+                <span class="font-mono" style="font-size:9.5px; color:var(--ink-muted);">NOV 14–16</span>
+              </div>
+              <div>
+                <strong style="font-size:13.5px; color:var(--ink);">Future Web Experience</strong>
+                <!-- Web & Motion Wireframe Diagram -->
+                <div class="folder-card-illu">
+                  <svg viewBox="0 0 160 48" width="100%" height="48" fill="none">
+                    <rect x="15" y="8" width="70" height="34" rx="3" fill="#F0F9FF" stroke="#0284C7" stroke-width="1.2"/>
+                    <line x1="15" y1="16" x2="85" y2="16" stroke="#BAE6FD" stroke-width="1"/>
+                    <rect x="22" y="22" width="24" height="14" rx="2" fill="#BAE6FD"/>
+                    <line x1="52" y1="24" x2="78" y2="24" stroke="#0284C7" stroke-width="1.5"/>
+                    <line x1="52" y1="30" x2="72" y2="30" stroke="#94A3B8" stroke-width="1"/>
+                    <!-- Mobile Viewport Wireframe -->
+                    <rect x="100" y="8" width="22" height="34" rx="3" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.2"/>
+                    <rect x="104" y="14" width="14" height="8" rx="1.5" fill="#BAE6FD"/>
+                    <circle cx="111" cy="36" r="1.5" fill="#0284C7"/>
+                    <!-- Responsive Arrow -->
+                    <path d="M 88,25 L 96,25" stroke="#0284C7" stroke-width="1.2" stroke-dasharray="2 2"/>
+                  </svg>
+                </div>
+                <p style="font-size:10.5px; color:var(--ink-muted); margin-top:1px;">Fluid GSAP motion & a11y DOM</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:9.5px; color:#0284C7; font-weight:700;">SOLO / PAIRS</span>
+                <a href="register.html" class="btn-hero-primary" style="padding:4px 10px; font-size:10px;">Join ↗</a>
+              </div>
+            </div>
+
+            <div class="image-folder-card-file file-index-2">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:#38BDF8; font-weight:700;">MICRO-APP</span>
+                <span class="font-mono" style="font-size:9.5px; color:var(--ink-muted);">HYBRID</span>
+              </div>
+              <div>
+                <strong style="font-size:13.5px; color:var(--ink);">Zero-Overhead Studio</strong>
+                <p style="font-size:11px; color:var(--ink-muted); margin-top:2px;">Zero build steps, 100% semantic</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:var(--ink-faint);">CERTIFIED</span>
+                <a href="register.html" class="btn-hero-primary" style="padding:4px 10px; font-size:10px;">Join ↗</a>
+              </div>
+            </div>
+
+            <div class="image-folder-front"></div>
+
+            <div class="image-folder-control">
+              <div>
+                <div class="folder-label-title">Future Web Experience</div>
+                <div class="folder-count-pill">3 Challenges · Click to Pin</div>
+              </div>
+              <button type="button" class="folder-action-circle" aria-label="Toggle Web folder preview">
+                <span>+</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Folder 3: Systems & Distributed Mesh (Terracotta / Orange Theme) -->
+          <div class="image-folder-wrapper folder-theme-systems" data-category="systems" tabindex="0" role="region" aria-label="Systems & Cloud folder" onclick="toggleFolderPin(this)">
+            <div class="image-folder-back"></div>
+            
+            <div class="image-folder-card-file file-index-0">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:#EA580C; font-weight:700;">CONSENSUS</span>
+                <span class="font-mono" style="font-size:9.5px; color:var(--ink-muted);">DEC 1–3</span>
+              </div>
+              <div>
+                <strong style="font-size:13.5px; color:var(--ink);">Raft KV Storage</strong>
+                <p style="font-size:11px; color:var(--ink-muted); margin-top:2px;">High-throughput log replication</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:var(--ink-faint);">₹40,000 PRIZE</span>
+                <a href="student.html" class="btn-hero-primary" style="padding:4px 10px; font-size:10px;">Enter ↗</a>
+              </div>
+            </div>
+
+            <div class="image-folder-card-file file-index-1">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:#EA580C; font-weight:800;">● ROUND 1</span>
+                <span class="font-mono" style="font-size:9.5px; color:var(--ink-muted);">NOV 6–7</span>
+              </div>
+              <div>
+                <strong style="font-size:13.5px; color:var(--ink);">ReBuild '26 Arena</strong>
+                <!-- Distributed Consensus Topology Diagram -->
+                <div class="folder-card-illu">
+                  <svg viewBox="0 0 160 48" width="100%" height="48" fill="none">
+                    <!-- Cluster Nodes -->
+                    <rect x="18" y="14" width="30" height="20" rx="3" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.2"/>
+                    <circle cx="25" cy="24" r="2" fill="#10B981"/>
+                    <line x1="32" y1="24" x2="42" y2="24" stroke="#EA580C" stroke-width="1.5"/>
+                    
+                    <rect x="65" y="14" width="30" height="20" rx="3" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.2"/>
+                    <circle cx="72" cy="24" r="2" fill="#3B82F6"/>
+                    <line x1="79" y1="24" x2="89" y2="24" stroke="#EA580C" stroke-width="1.5"/>
+                    
+                    <rect x="112" y="14" width="30" height="20" rx="3" fill="#FFF7ED" stroke="#EA580C" stroke-width="1.2"/>
+                    <circle cx="119" cy="24" r="2" fill="#10B981"/>
+                    <line x1="126" y1="24" x2="136" y2="24" stroke="#EA580C" stroke-width="1.5"/>
+
+                    <!-- Inter-node sync paths -->
+                    <path d="M 48,24 L 65,24" stroke="#EA580C" stroke-width="1.2" stroke-dasharray="2 2"/>
+                    <path d="M 95,24 L 112,24" stroke="#EA580C" stroke-width="1.2" stroke-dasharray="2 2"/>
+                  </svg>
+                </div>
+                <p style="font-size:10.5px; color:var(--ink-muted); margin-top:1px;">Faithful portal recreation & revamp</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:9.5px; color:#EA580C; font-weight:700;">SOLO BUILDER</span>
+                <a href="student.html" class="btn-hero-primary" style="padding:4px 10px; font-size:10px;">Enter ↗</a>
+              </div>
+            </div>
+
+            <div class="image-folder-card-file file-index-2">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:#C84B1A; font-weight:700;">GATEWAY</span>
+                <span class="font-mono" style="font-size:9.5px; color:var(--ink-muted);">ONLINE</span>
+              </div>
+              <div>
+                <strong style="font-size:13.5px; color:var(--ink);">Zero-Copy Proxy</strong>
+                <p style="font-size:11px; color:var(--ink-muted); margin-top:2px;">eBPF packet filtering in Go/Rust</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:var(--ink-faint);">INTERNSHIP</span>
+                <a href="student.html" class="btn-hero-primary" style="padding:4px 10px; font-size:10px;">Enter ↗</a>
+              </div>
+            </div>
+
+            <div class="image-folder-front"></div>
+
+            <div class="image-folder-control">
+              <div>
+                <div class="folder-label-title">ReBuild '26 & Systems</div>
+                <div class="folder-count-pill">3 Challenges · Click to Pin</div>
+              </div>
+              <button type="button" class="folder-action-circle" aria-label="Toggle Systems folder preview">
+                <span>+</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Folder 4: SmartCampus IoT & Hardware (Saffron / Amber Theme) -->
+          <div class="image-folder-wrapper folder-theme-smart" data-category="smart" tabindex="0" role="region" aria-label="SmartCampus IoT folder" onclick="toggleFolderPin(this)">
+            <div class="image-folder-back"></div>
+            
+            <div class="image-folder-card-file file-index-0">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:#D97706; font-weight:700;">ENERGY</span>
+                <span class="font-mono" style="font-size:9.5px; color:var(--ink-muted);">NOV 22</span>
+              </div>
+              <div>
+                <strong style="font-size:13.5px; color:var(--ink);">Campus Grid Mesh</strong>
+                <p style="font-size:11px; color:var(--ink-muted); margin-top:2px;">Hostel solar telemetry & control</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:var(--ink-faint);">₹30,000 PRIZE</span>
+                <a href="register.html" class="btn-hero-secondary" style="padding:4px 10px; font-size:10px;">Notify ↗</a>
+              </div>
+            </div>
+
+            <div class="image-folder-card-file file-index-1">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:#D97706; font-weight:800;">UPCOMING</span>
+                <span class="font-mono" style="font-size:9.5px; color:var(--ink-muted);">NOV 22–24</span>
+              </div>
+              <div>
+                <strong style="font-size:13.5px; color:var(--ink);">SmartCampus IoT & Utilities</strong>
+                <!-- Embedded SoC & Telemetry Circuit Diagram -->
+                <div class="folder-card-illu">
+                  <svg viewBox="0 0 160 48" width="100%" height="48" fill="none">
+                    <!-- SoC Microcontroller Chip -->
+                    <rect x="55" y="10" width="28" height="28" rx="2" fill="#FEF3C7" stroke="#D97706" stroke-width="1.2"/>
+                    <circle cx="62" cy="17" r="1.5" fill="#D97706"/>
+                    <rect x="66" y="21" width="10" height="10" fill="#D97706" opacity="0.3"/>
+                    <!-- Pin Traces -->
+                    <line x1="42" y1="16" x2="55" y2="16" stroke="#F59E0B" stroke-width="1.2"/>
+                    <line x1="42" y1="24" x2="55" y2="24" stroke="#F59E0B" stroke-width="1.2"/>
+                    <line x1="42" y1="32" x2="55" y2="32" stroke="#F59E0B" stroke-width="1.2"/>
+                    <line x1="83" y1="16" x2="96" y2="16" stroke="#F59E0B" stroke-width="1.2"/>
+                    <line x1="83" y1="24" x2="96" y2="24" stroke="#F59E0B" stroke-width="1.2"/>
+                    <line x1="83" y1="32" x2="96" y2="32" stroke="#F59E0B" stroke-width="1.2"/>
+                    <!-- Telemetry Radio Wave -->
+                    <path d="M 110,18 A 8,8 0 0 1 110,30" stroke="#D97706" stroke-width="1.2" stroke-linecap="round"/>
+                    <path d="M 115,14 A 14,14 0 0 1 115,34" stroke="#D97706" stroke-width="1.2" stroke-linecap="round"/>
+                    <path d="M 120,10 A 20,20 0 0 1 120,38" stroke="#D97706" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+                  </svg>
+                </div>
+                <p style="font-size:10.5px; color:var(--ink-muted); margin-top:1px;">Embedded hardware & sensors</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:9.5px; color:#D97706; font-weight:700;">TEAMS 2–4</span>
+                <a href="register.html" class="btn-hero-secondary" style="padding:4px 10px; font-size:10px;">Notify ↗</a>
+              </div>
+            </div>
+
+            <div class="image-folder-card-file file-index-2">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:#F59E0B; font-weight:700;">MOBILITY</span>
+                <span class="font-mono" style="font-size:9.5px; color:var(--ink-muted);">CAMPUS</span>
+              </div>
+              <div>
+                <strong style="font-size:13.5px; color:var(--ink);">Autonomous Shuttle</strong>
+                <p style="font-size:11px; color:var(--ink-muted); margin-top:2px;">LiDAR SLAM & peer dispatching</p>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span class="font-mono" style="font-size:10px; color:var(--ink-faint);">SEED GRANTS</span>
+                <a href="register.html" class="btn-hero-secondary" style="padding:4px 10px; font-size:10px;">Notify ↗</a>
+              </div>
+            </div>
+
+            <div class="image-folder-front"></div>
+
+            <div class="image-folder-control">
+              <div>
+                <div class="folder-label-title">SmartCampus IoT</div>
+                <div class="folder-count-pill">3 Challenges · Click to Pin</div>
+              </div>
+              <button type="button" class="folder-action-circle" aria-label="Toggle IoT folder preview">
+                <span>+</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         7. INTERACTIVE COLLABORATION NETWORK (HACKMATE)
+         ======================================================================== -->
+    <section class="section-collaboration" id="collaboration">
+      <div class="container">
+        <div class="section-head-center">
+          <h2 class="section-title-large">Good ideas grow with the right people.</h2>
+          <p class="section-desc-lead">
+            Build with developers. Think with designers. HackMate connects you with teammates who bring complementary technical depth to your hackathon projects.
+          </p>
+        </div>
+
+        <!-- Normal Builder Role Cards Grid (No animation / no scrolling) -->
+        <div class="collab-cards-grid">
+
+          <!-- Card 1: Frontend & Interface -->
+          <div class="collab-builder-card">
+            <div class="collab-card-top">
+              <div class="collab-role-icon role-icon-blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <span class="collab-category-tag tag-blue">Interface & Motion</span>
+            </div>
+            <h3 class="collab-role-title">Frontend & Creative Engineers</h3>
+            <p class="collab-role-desc">
+              Transforms product concepts into responsive, fluid web interfaces. Obsessed with micro-interactions, layout precision, and fast client-side state.
+            </p>
+            <div class="collab-skills-wrap">
+              <span class="collab-skill-pill">React</span>
+              <span class="collab-skill-pill">Next.js</span>
+              <span class="collab-skill-pill">TypeScript</span>
+              <span class="collab-skill-pill">Tailwind CSS</span>
+              <span class="collab-skill-pill">Framer Motion</span>
+            </div>
+            <div class="collab-card-footer">
+              <div class="collab-match-lead">
+                <span class="collab-match-label">Complementary</span>
+                <span class="collab-match-target">Systems & AI Builders</span>
+              </div>
+              <span class="collab-match-badge badge-blue">98% Match</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Backend & Systems -->
+          <div class="collab-builder-card">
+            <div class="collab-card-top">
+              <div class="collab-role-icon role-icon-orange">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                  <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                  <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                </svg>
+              </div>
+              <span class="collab-category-tag tag-orange">Distributed Systems</span>
+            </div>
+            <h3 class="collab-role-title">Backend & Cloud Architects</h3>
+            <p class="collab-role-desc">
+              Architects resilient APIs, high-concurrency event queues, transactional schemas, and containerized deployments ready for hackathon judge evaluation.
+            </p>
+            <div class="collab-skills-wrap">
+              <span class="collab-skill-pill">Node.js</span>
+              <span class="collab-skill-pill">Go</span>
+              <span class="collab-skill-pill">PostgreSQL</span>
+              <span class="collab-skill-pill">Redis</span>
+              <span class="collab-skill-pill">Docker</span>
+            </div>
+            <div class="collab-card-footer">
+              <div class="collab-match-lead">
+                <span class="collab-match-label">Complementary</span>
+                <span class="collab-match-target">Frontend & UI Devs</span>
+              </div>
+              <span class="collab-match-badge badge-orange">96% Match</span>
+            </div>
+          </div>
+
+          <!-- Card 3: AI & Machine Learning -->
+          <div class="collab-builder-card">
+            <div class="collab-card-top">
+              <div class="collab-role-icon role-icon-indigo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5V11a2 2 0 0 0 2 2h1a3 3 0 0 1 3 3v1a2 2 0 0 1-2 2h-1a2 2 0 0 0-2 2v1a2 2 0 0 1-4 0v-1a2 2 0 0 0-2-2H8a2 2 0 0 1-2-2v-1a3 3 0 0 1 3-3h1a2 2 0 0 0 2-2V9.5C10.8 8.8 10 7.5 10 6a4 4 0 0 1 4-4z"></path>
+                </svg>
+              </div>
+              <span class="collab-category-tag tag-indigo">Inference & Agents</span>
+            </div>
+            <h3 class="collab-role-title">AI & Machine Learning Engineers</h3>
+            <p class="collab-role-desc">
+              Integrates local LLMs, fine-tuned embeddings, retrieval-augmented generation (RAG), and agentic pipelines that turn prototypes into real intelligence.
+            </p>
+            <div class="collab-skills-wrap">
+              <span class="collab-skill-pill">Python</span>
+              <span class="collab-skill-pill">PyTorch</span>
+              <span class="collab-skill-pill">FastAPI</span>
+              <span class="collab-skill-pill">LangChain</span>
+              <span class="collab-skill-pill">Vector DBs</span>
+            </div>
+            <div class="collab-card-footer">
+              <div class="collab-match-lead">
+                <span class="collab-match-label">Complementary</span>
+                <span class="collab-match-target">Full-Stack Builders</span>
+              </div>
+              <span class="collab-match-badge badge-indigo">97% Match</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Product & Design -->
+          <div class="collab-builder-card">
+            <div class="collab-card-top">
+              <div class="collab-role-icon role-icon-peach">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+                </svg>
+              </div>
+              <span class="collab-category-tag tag-peach">Product & Experience</span>
+            </div>
+            <h3 class="collab-role-title">Product Designers & Strategists</h3>
+            <p class="collab-role-desc">
+              Unpacks user friction, defines product wireframes, crafts interactive design systems in Figma, and polishes pitch storytelling to win judges over.
+            </p>
+            <div class="collab-skills-wrap">
+              <span class="collab-skill-pill">Figma</span>
+              <span class="collab-skill-pill">Design Systems</span>
+              <span class="collab-skill-pill">User Research</span>
+              <span class="collab-skill-pill">Prototyping</span>
+              <span class="collab-skill-pill">Pitch Decks</span>
+            </div>
+            <div class="collab-card-footer">
+              <div class="collab-match-lead">
+                <span class="collab-match-label">Complementary</span>
+                <span class="collab-match-target">Cross-Functional Devs</span>
+              </div>
+              <span class="collab-match-badge badge-peach">95% Match</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- HackMate Discovery Callout Banner -->
+        <div class="collab-banner-callout">
+          <div class="collab-banner-content">
+            <div class="collab-banner-badge">⚡ Instant Teammate Discovery</div>
+            <h4 class="collab-banner-title">Looking for teammates for your next hackathon?</h4>
+            <p class="collab-banner-sub">HackMate matches student builders across universities based on real GitHub commits and complementary stacks.</p>
+          </div>
+          <a href="register.html" class="btn-hero-primary" style="white-space:nowrap; padding:14px 24px; font-size:13.5px;">
+            <span>Find Teammates on HackMate</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         8. FINAL CONVERSION GATEWAY ARCH
+         ======================================================================== -->
+    <section class="section-final-gateway" id="community">
+      <div class="gateway-arch-backdrop" aria-hidden="true">
+        <img src="assets/svg/mandala-gateway.svg" alt="" aria-hidden="true">
+      </div>
+
+      <div class="container gateway-content-box">
+        <h2 style="font-size:clamp(36px, 4.8vw, 60px); font-weight:900; letter-spacing:-0.03em; line-height:1.1; margin:16px 0 20px;">
+          Ready to enter the <span class="gradient-text">arena?</span>
+        </h2>
+        <p style="font-size:16px; color:var(--ink-muted); line-height:1.6; margin-bottom:34px;">
+          Join thousands of engineering students discovering hackathons, forming verified teams, and shipping production software across India.
+        </p>
+
+        <div class="hero-cta-cluster">
+          <a href="register.html" class="btn-hero-primary" style="padding:16px 36px; font-size:14px;">
+            <span>Join CampusCode</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <button type="button" class="btn-hero-demo" onclick="quickDemoLogin()" style="padding:16px 28px; font-size:14px;">
+            <span>⚡ Quick Demo Login</span>
+            <span aria-hidden="true">→</span>
+          </button>
+          <a href="login.html" class="btn-hero-secondary" style="padding:16px 28px; font-size:14px;">
+            <span>Sign In to Workspace</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       9. ICONIC EDITORIAL FOOTER WITH PIXEL-FOLDER MOSAIC (IMAGE 2 REFERENCE STYLE)
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <!-- 4 Clean Navigation Columns (Exact Image 2 Structure) -->
+      <div class="footer-nav-columns">
+        <div class="footer-column">
+          <div class="footer-column-title">product</div>
+          <div class="footer-column-links">
+            <a href="#preview">features</a>
+            <a href="student.html">pricing</a>
+            <a href="#workflow">changelog</a>
+            <a href="javascript:void(0)" onclick="quickDemoLogin()" style="color:var(--spec-blue); font-weight:700;">try it</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <div class="footer-column-title">resources</div>
+          <div class="footer-column-links">
+            <a href="student.html?tab=digital-id">trust</a>
+            <a href="#about">privacy</a>
+            <a href="#collaboration">referrals</a>
+            <a href="#hackathons">support</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <div class="footer-column-title">connect</div>
+          <div class="footer-column-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener">instagram</a>
+            <a href="https://x.com" target="_blank" rel="noopener">x (twitter)</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener">linkedin</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener">youtube</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <div class="footer-column-title">disclaimer</div>
+          <p class="footer-disclaimer-text">
+            *campuscode only evaluates your repositories during active competition rounds - private credentials and student data are never stored*
+          </p>
+        </div>
+      </div>
+
+      <!-- Pixel-Folder Mosaic Stage (Trash Can + CampusCode Wordmark + Floating Folder) -->
+      <div class="pixel-folder-logo-stage" aria-label="CampusCode Pixel Folder Wordmark">
+        <img src="assets/svg/trash-can.svg" alt="Desktop Trash Can with spills" class="footer-trash-bin">
+        <img src="assets/svg/pixel-wordmark.svg" alt="CampusCode wordmark made of desktop folders" class="footer-wordmark-mosaic">
+        <img src="assets/svg/floating-folder.svg" alt="Floating blue folder" class="footer-floating-folder">
+      </div>
+
+      <!-- Footer Bottom Copyright Bar -->
+      <div class="footer-bottom-bar">
+        © CampusCode, Inc. 2026
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Self-Hosted GSAP, ScrollTrigger, Lenis & React Bits Engine -->
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/lenis.min.js"></script>
+  <script src="assets/vendor/ogl.min.js"></script>
+  <script src="assets/js/PatternWaves.js"></script>
+  <script src="assets/js/GradientASCII.js"></script>
+  <script src="assets/js/RibbonType.js"></script>
+  <script src="assets/js/landing.js"></script>
+</body>
+</html>

@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Workspace — CampusCode Arena</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="assets/css/app-theme.css">
+  <link rel="stylesheet" href="assets/css/student.css">
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Left Compact Icon Rail (72px wide, Finexy-style) -->
+    <aside class="app-icon-rail" id="appSidebar">
+      <!-- Top Brand Logo -->
+      <div class="rail-brand">
+        <a href="index.html" class="rail-brand-link" title="Return to CampusCode Public Landing Page">
+          <img src="assets/gradient-cc-logo.png" alt="CampusCode Logo" class="rail-brand-img">
+        </a>
+      </div>
+
+      <!-- Main Navigation Rail Icons -->
+      <nav class="rail-nav-group" aria-label="Main Navigation">
+        <button type="button" class="rail-btn active" data-tab="overview" onclick="switchTab('overview')" title="Home Dashboard" aria-label="Home Dashboard">
+          <svg viewBox="0 0 24 24" class="rail-icon"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/></svg>
+          <span class="rail-tooltip">Overview</span>
+        </button>
+
+        <button type="button" class="rail-btn" data-tab="events" onclick="switchTab('events')" title="Explore Events" aria-label="Explore Events">
+          <svg viewBox="0 0 24 24" class="rail-icon"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          <span class="rail-badge-dot" title="4 Live Hackathons"></span>
+          <span class="rail-tooltip">Explore Events</span>
+        </button>
+
+        <button type="button" class="rail-btn" data-tab="my-events" onclick="switchTab('my-events')" title="My Enrolled Events" aria-label="My Enrolled Events">
+          <svg viewBox="0 0 24 24" class="rail-icon"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span class="rail-tooltip">My Events</span>
+        </button>
+
+        <button type="button" class="rail-btn" data-tab="workspace" onclick="openEventWorkspace('rebuild-26', 'overview')" title="Active Competition Workspace" aria-label="Active Competition Workspace">
+          <svg viewBox="0 0 24 24" class="rail-icon"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span class="rail-tooltip">Active Workspace</span>
+        </button>
+
+        <button type="button" class="rail-btn" data-tab="profile" onclick="switchTab('profile')" title="Profile & Skills" aria-label="Profile & Skills">
+          <svg viewBox="0 0 24 24" class="rail-icon"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="rail-tooltip">Profile & Skills</span>
+        </button>
+      </nav>
+
+      <!-- Bottom Utility Icons -->
+      <div class="rail-bottom-group">
+        <button type="button" class="rail-btn" data-tab="digital-id" onclick="switchTab('digital-id')" title="Digital Student ID Pass" aria-label="Digital Student ID Pass">
+          <svg viewBox="0 0 24 24" class="rail-icon"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 7h.01"/><path d="M17 7h.01"/><path d="M7 17h.01"/><path d="M17 17h.01"/><rect x="7" y="11" width="10" height="2" rx="1"/></svg>
+          <span class="rail-tooltip">Digital ID</span>
+        </button>
+
+        <button type="button" class="rail-btn" data-tab="certificates" onclick="switchTab('certificates')" title="Verified Certificates" aria-label="Verified Certificates">
+          <svg viewBox="0 0 24 24" class="rail-icon"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          <span class="rail-tooltip">Certificates</span>
+        </button>
+
+        <button type="button" class="rail-btn" data-tab="guide" onclick="switchTab('guide')" title="Student Guide & Rules" aria-label="Student Guide & Rules">
+          <svg viewBox="0 0 24 24" class="rail-icon"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+          <span class="rail-tooltip">Guide & FAQs</span>
+        </button>
+
+        <button type="button" class="rail-btn" onclick="toggleAssistantDrawer()" title="RuleBot Assistant" aria-label="RuleBot Assistant">
+          <svg viewBox="0 0 24 24" class="rail-icon"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          <span class="rail-tooltip">RuleBot AI</span>
+        </button>
+
+        <button type="button" class="rail-btn" onclick="logout()" title="End Session (Log Out)" aria-label="End Session">
+          <svg viewBox="0 0 24 24" class="rail-icon"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+          <span class="rail-tooltip">Log Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Area -->
+    <div class="app-main-wrap">
+      <!-- Topbar Header with Floating Pill Navigation -->
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button type="button" class="mobile-menu-toggle" onclick="toggleMobileSidebar()" aria-label="Toggle navigation">
+            ☰
+          </button>
+
+          <div class="topbar-breadcrumb">
+            <span class="brand-crumb">CAMPUSCODE</span>
+            <span class="crumb-sep">/</span>
+            <span class="crumb-sec">STUDENT</span>
+            <span class="crumb-sep">/</span>
+            <span class="crumb-active" id="topbarActiveTitle">HOME</span>
+          </div>
+        </div>
+
+        <!-- Floating Central Pill Navigation (Finexy Reference) -->
+        <nav class="topbar-floating-pill-nav" id="topbarFloatingNav" aria-label="Workspace Context Tabs">
+          <button type="button" class="pill-tab-item active" data-context-tab="overview" onclick="switchDashboardSub('overview')">Overview</button>
+          <button type="button" class="pill-tab-item" data-context-tab="activity" onclick="switchDashboardSub('activity')">Activity</button>
+          <button type="button" class="pill-tab-item" data-context-tab="deadlines" onclick="switchDashboardSub('deadlines')">Deadlines</button>
+          <button type="button" class="pill-tab-item" data-context-tab="achievements" onclick="switchTab('certificates')">Achievements</button>
+        </nav>
+
+        <div class="topbar-right">
+          <!-- Search Command Bar Trigger -->
+          <button type="button" class="topbar-search-btn" onclick="openCommandPalette()" title="Press ⌘K or Ctrl+K to search">
+            <svg viewBox="0 0 24 24" class="search-icon"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
+            <span class="search-label">Search events, rules...</span>
+            <kbd class="search-kbd">⌘K</kbd>
+          </button>
+
+          <!-- Demo Mode Badge -->
+          <div class="demo-mode-pill" title="Running in Evaluator Sandbox">
+            <span class="demo-dot"></span>
+            <span>DEMO</span>
+            <button type="button" class="demo-reset-link" onclick="resetDemoData()" title="Reset mock data">Reset</button>
+          </div>
+
+          <!-- Assistant Trigger -->
+          <button type="button" class="topbar-assistant-btn" onclick="toggleAssistantDrawer()" title="Open RuleBot AI Assistant">
+            <span class="assistant-sparkle">✦</span>
+            <span>RuleBot AI</span>
+          </button>
+
+          <!-- Notification Bell -->
+          <button type="button" class="topbar-icon-btn" onclick="toggleNotifDrawer()" title="Notifications" aria-label="Open notifications">
+            <svg viewBox="0 0 24 24" class="bell-icon"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+            <span class="unread-badge" id="notifUnreadBadge" style="display:none;">0</span>
+          </button>
+
+          <!-- Topbar Avatar Pill -->
+          <div class="topbar-avatar-wrap" id="topbarAvatarContainer" onclick="switchTab('profile')" style="cursor:pointer;" title="View Student Profile">
+            <div class="mascot-speech-bubble" id="mascotSpeechBubble">Ready to ship ReBuild '26, Sai? 🚀</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Scrollable Main View Canvas -->
+      <main class="app-view-canvas">
+        <!-- ==================================================================
+             S01: HOME DASHBOARD VIEW (Reference Dashboard Architecture)
+             ================================================================== -->
+        <section id="view-overview" class="app-view-section">
+          <!-- Compact Dashboard Header Greeting with 3 Quick Action Cards -->
+          <div class="dashboard-greeting-header" id="dashboard-top">
+            <div class="greeting-text-wrap">
+              <h1 class="greeting-title">Welcome back, <span id="profileDisplayGreeting">Sai.</span></h1>
+              <p class="greeting-subtitle">
+                Your active events, deliverables and hackathon schedule are in sync.
+              </p>
+            </div>
+
+            <!-- 3 Tactile Quick Action Cards (Reference Layout) -->
+            <div class="dashboard-quick-tiles">
+              <div class="quick-tile-card" onclick="openEventWorkspace('rebuild-26', 'overview')" role="button" tabindex="0" title="Open ReBuild '26 Active Workspace">
+                <div class="quick-tile-icon-box blue">
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
+                </div>
+                <div class="quick-tile-body">
+                  <strong>ReBuild '26 Active</strong>
+                  <span>Round 1 cutoff today 10:00 PM</span>
+                </div>
+              </div>
+
+              <div class="quick-tile-card" onclick="openEventWorkspace('rebuild-26', 'team')" role="button" tabindex="0" title="Explore HackMate Teammate Matches">
+                <div class="quick-tile-icon-box orange">
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                </div>
+                <div class="quick-tile-body">
+                  <strong>HackMate Matches</strong>
+                  <span>3 compatible peers available</span>
+                </div>
+              </div>
+
+              <div class="quick-tile-card" onclick="switchTab('digital-id')" role="button" tabindex="0" title="Inspect Digital Student ID Pass">
+                <div class="quick-tile-icon-box indigo">
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" fill="none" stroke-width="2">
+                    <rect width="18" height="18" x="3" y="3" rx="2"/>
+                    <path d="M7 7h.01M17 7h.01M7 17h.01M17 17h.01"/>
+                    <rect x="7" y="11" width="10" height="2" rx="1"/>
+                  </svg>
+                </div>
+                <div class="quick-tile-body">
+                  <strong>Digital Student ID</strong>
+                  <span>CC-2026-8841 verified</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FIRST-ROW DASHBOARD GRID: 3 Columns (4/4/4 Split) -->
+          <div class="dashboard-grid-first-row">
+            <!-- Col A: Active Event Card (Direct, Clean, No Nested Boxes) -->
+            <div class="dashboard-col active-event-card">
+              <div class="card-inner-header">
+                <span class="status-pill active">Round 1 Live</span>
+                <span class="font-mono" style="font-size:11px; color:var(--cc-ink-muted);">ReBuild '26</span>
+              </div>
+
+              <div class="card-event-title-wrap">
+                <h2 class="card-event-title">Faithful Recreation Hackathon</h2>
+                <p class="card-event-desc">
+                  Individual participant as <strong>sai'steam</strong>. Recreate 4 core CampusCode pages with zero build steps and responsive precision.
+                </p>
+              </div>
+
+              <div class="card-event-divider"></div>
+
+              <!-- Next Action & Real Cutoff Row -->
+              <div class="event-action-summary-row">
+                <div class="summary-action-item">
+                  <span class="summary-meta-label">Next Action</span>
+                  <p class="summary-meta-value">Preflight deliverables with IdeaCheck & submit</p>
+                </div>
+                <div class="summary-deadline-item">
+                  <span class="summary-meta-label">Submission Cutoff</span>
+                  <div class="countdown-timer-display">
+                    <div class="time-block"><strong id="countdownHours">05</strong><small>h</small></div>
+                    <span class="time-sep">:</span>
+                    <div class="time-block"><strong id="countdownMinutes">42</strong><small>m</small></div>
+                    <span class="time-sep">:</span>
+                    <div class="time-block"><strong id="countdownSeconds">18</strong><small>s</small></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card Action Buttons -->
+              <div class="card-cta-row">
+                <button type="button" class="btn-card-primary" onclick="openEventWorkspace('rebuild-26', 'submit')">
+                  Preflight & Submit Draft ↗
+                </button>
+                <button type="button" class="btn-card-sub" onclick="openEventWorkspace('rebuild-26', 'overview')">
+                  Rules & Specs
+                </button>
+              </div>
+            </div>
+
+            <!-- Col B: Deliverables Checklist (Assignments Reference from Screenshot) -->
+            <div class="dashboard-col deliverables-card" id="sec-deliverables">
+              <div class="panel-section-title">
+                <span>Deliverables Checklist</span>
+                <span class="font-mono" style="font-size:11px; color:var(--cc-primary); font-weight:700;">4/4 Ready</span>
+              </div>
+
+              <div class="deliverables-checklist-items">
+                <div class="deliverable-check-row">
+                  <div class="check-bullet pass">✓</div>
+                  <div class="deliverable-text-col">
+                    <strong>Landing Page Recreation</strong>
+                    <span>White Spectrum canvas, mandala rings & suspended tokens</span>
+                  </div>
+                  <span class="status-pill success">Verified</span>
+                </div>
+
+                <div class="deliverable-check-row">
+                  <div class="check-bullet pass">✓</div>
+                  <div class="deliverable-text-col">
+                    <strong>Auth Flow (Login & Register)</strong>
+                    <span>Semantic forms, OTP verification, clean client validation</span>
+                  </div>
+                  <span class="status-pill success">Verified</span>
+                </div>
+
+                <div class="deliverable-check-row">
+                  <div class="check-bullet pass">✓</div>
+                  <div class="deliverable-text-col">
+                    <strong>Student Portal Workspace</strong>
+                    <span>All 8 views, workspace tabs, digital ID & certifications</span>
+                  </div>
+                  <span class="status-pill active">Ready</span>
+                </div>
+
+                <div class="deliverable-check-row">
+                  <div class="check-bullet pass">✓</div>
+                  <div class="deliverable-text-col">
+                    <strong>Responsive Viewports</strong>
+                    <span>360px mobile to 2048px desktop with zero overflow</span>
+                  </div>
+                  <span class="status-pill success">Passed</span>
+                </div>
+              </div>
+
+              <div style="margin-top:14px; display:flex; justify-content:flex-end;">
+                <button type="button" class="btn-card-primary" onclick="openEventWorkspace('rebuild-26', 'submit')">
+                  Run IdeaCheck Preflight ↗
+                </button>
+              </div>
+            </div>
+
+            <!-- Col C: Competition Schedule & Day Agenda (Calendar Reference from Screenshot) -->
+            <div class="dashboard-col schedule-agenda-card" id="sec-deadlines">
+              <div class="panel-section-title">
+                <span>Competition Schedule</span>
+                <span class="font-mono" style="font-size:11px; color:var(--cc-ink-muted);">Nov 2026</span>
+              </div>
+
+              <!-- Days Bar Selector -->
+              <div class="schedule-days-bar">
+                <div class="day-col">
+                  <span class="day-name">Mon</span>
+                  <span class="day-num">3</span>
+                </div>
+                <div class="day-col">
+                  <span class="day-name">Tue</span>
+                  <span class="day-num">4</span>
+                </div>
+                <div class="day-col">
+                  <span class="day-name">Wed</span>
+                  <span class="day-num">5</span>
+                </div>
+                <div class="day-col">
+                  <span class="day-name">Thu</span>
+                  <span class="day-num">6</span>
+                </div>
+                <div class="day-col active-today">
+                  <span class="day-name">Fri</span>
+                  <span class="day-num">7</span>
+                </div>
+                <div class="day-col">
+                  <span class="day-name">Sat</span>
+                  <span class="day-num">8</span>
+                </div>
+                <div class="day-col">
+                  <span class="day-name">Sun</span>
+                  <span class="day-num">9</span>
+                </div>
+              </div>
+
+              <!-- Timed Milestone Slots -->
+              <div class="schedule-slots-list">
+                <div class="schedule-slot-item">
+                  <span class="slot-time">10:00 AM – 12:00 PM</span>
+                  <div class="slot-body">
+                    <strong>Team Sync & IdeaCheck Review</strong>
+                    <span>Review rubric benchmarks with mentor</span>
+                  </div>
+                </div>
+
+                <div class="schedule-slot-item">
+                  <span class="slot-time">05:30 PM</span>
+                  <div class="slot-body">
+                    <strong>Preflight Verification Run</strong>
+                    <span>Tamper-proof SHA-256 hash generated</span>
+                  </div>
+                </div>
+
+                <div class="schedule-slot-item urgent">
+                  <span class="slot-time">10:00 PM (Strict)</span>
+                  <div class="slot-body">
+                    <strong>Round 1 Hard Submission Cutoff</strong>
+                    <span>Portal locks automatically for faculty judging</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SECOND-ROW DASHBOARD GRID: 3 Columns -->
+          <div class="dashboard-grid-second-row" id="sec-activity">
+            <!-- Col A: Today's Tasks & Verification Progress (Tasks Reference from Screenshot) -->
+            <div class="dashboard-col today-tasks-card">
+              <div class="panel-section-title">
+                <span>Verification Tasks</span>
+                <span class="font-mono" style="font-size:11px; color:var(--cc-success); font-weight:700;">100% Passed</span>
+              </div>
+
+              <div class="today-tasks-list">
+                <div class="task-item-row">
+                  <div class="task-left">
+                    <span class="task-name">Clean GitHub repository tree</span>
+                    <span class="task-sub">Verified public commit tree</span>
+                  </div>
+                  <div class="task-progress-col">
+                    <div class="progress-bar-track">
+                      <div class="progress-bar-fill" style="width:100%;"></div>
+                    </div>
+                    <span class="task-percent font-mono">100%</span>
+                  </div>
+                </div>
+
+                <div class="task-item-row">
+                  <div class="task-left">
+                    <span class="task-name">Live demo URL 200 OK response</span>
+                    <span class="task-sub">18ms edge CDN latency</span>
+                  </div>
+                  <div class="task-progress-col">
+                    <div class="progress-bar-track">
+                      <div class="progress-bar-fill" style="width:100%;"></div>
+                    </div>
+                    <span class="task-percent font-mono">100%</span>
+                  </div>
+                </div>
+
+                <div class="task-item-row">
+                  <div class="task-left">
+                    <span class="task-name">Zero horizontal viewport overflow</span>
+                    <span class="task-sub">Tested 360px up to 2048px</span>
+                  </div>
+                  <div class="task-progress-col">
+                    <div class="progress-bar-track">
+                      <div class="progress-bar-fill" style="width:100%;"></div>
+                    </div>
+                    <span class="task-percent font-mono">100%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid #F0F2F5; display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-size:11.5px; color:#1E7E34; font-weight:600;">✓ 3 of 3 tasks verified</span>
+                <span class="status-pill success font-mono" style="font-size:10px;">SHA-256 Locked</span>
+              </div>
+            </div>
+
+            <!-- Col B: Digital Student ID Feature Tile -->
+            <div class="dashboard-col digital-id-feature-card">
+              <div class="panel-section-title">
+                <span>Digital Student ID</span>
+                <span class="status-pill success font-mono" style="font-size:10px;">Verified Active</span>
+              </div>
+
+              <div class="digital-id-mini-pass-preview" onclick="switchTab('digital-id')" title="Click to view interactive Digital ID">
+                <div class="mini-pass-header">
+                  <div class="mini-pass-brand">
+                    <span class="mini-pass-logo">CC</span>
+                    <span class="mini-pass-title">CAMPUSCODE PASS</span>
+                  </div>
+                  <div class="mini-pass-chip" aria-hidden="true"></div>
+                </div>
+                <div class="mini-pass-body">
+                  <div class="mini-pass-name">Sai Krishna</div>
+                  <div class="mini-pass-id font-mono">CC-2026-8841 • Computer Science</div>
+                </div>
+                <div class="mini-pass-footer">
+                  <span class="mini-pass-hash font-mono">0x9F4B...72A1</span>
+                  <span class="mini-pass-badge">NFC Verified</span>
+                </div>
+              </div>
+
+              <div style="margin-top:auto; padding-top:12px; border-top:1px solid #F0F2F5; display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:11px; color:#6B7280; font-weight:500;">On-Chain Verified</span>
+                <button type="button" class="btn-card-primary" onclick="switchTab('digital-id')" style="padding:8px 14px; font-size:12px;">
+                  Arise Pass ↗
+                </button>
+              </div>
+            </div>
+
+            <!-- Col C: Recent Activity Table -->
+            <div class="dashboard-col activity-table-panel">
+              <div class="table-panel-header">
+                <div class="panel-section-title">
+                  <span>Recent Activity</span>
+                  <span class="table-subtitle">Verified logs & submissions</span>
+                </div>
+
+                <!-- Activity Filter Tabs -->
+                <div class="activity-filter-tabs">
+                  <button type="button" class="filter-tab-pill active" onclick="filterActivityTable('all', this)">All</button>
+                  <button type="button" class="filter-tab-pill" onclick="filterActivityTable('submission', this)">Submissions</button>
+                  <button type="button" class="filter-tab-pill" onclick="filterActivityTable('teams', this)">Teams</button>
+                </div>
+              </div>
+
+              <!-- Structured Activity Table -->
+              <div class="table-responsive-container">
+                <table class="recent-activity-table" id="recentActivityTable">
+                  <thead>
+                    <tr>
+                      <th>ACTIVITY</th>
+                      <th>EVENT</th>
+                      <th>STATUS</th>
+                      <th>DATE & TIME</th>
+                      <th>ACTION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-type="submission" onclick="openEventWorkspace('rebuild-26', 'submit')">
+                      <td>
+                        <div class="activity-title-cell">
+                          <span class="activity-type-icon green">
+                            <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                          </span>
+                          <div>
+                            <strong>IdeaCheck Preflight Passed</strong>
+                            <small class="activity-desc-sub">All 4 core routes verified</small>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="event-name-pill">ReBuild '26</span></td>
+                      <td><span class="status-pill success">VERIFIED 94%</span></td>
+                      <td class="activity-date-cell">Today, 5:30 PM</td>
+                      <td><button type="button" class="table-action-link" onclick="event.stopPropagation(); openEventWorkspace('rebuild-26', 'submit')">Review ↗</button></td>
+                    </tr>
+
+                    <tr data-type="submission" onclick="openEventWorkspace('rebuild-26', 'submit')">
+                      <td>
+                        <div class="activity-title-cell">
+                          <span class="activity-type-icon blue">
+                            <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" fill="none" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                          </span>
+                          <div>
+                            <strong>Project Draft Autosaved</strong>
+                            <small class="activity-desc-sub">GitHub repo & live demo linked</small>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="event-name-pill">ReBuild '26</span></td>
+                      <td><span class="status-pill draft">SAVED</span></td>
+                      <td class="activity-date-cell">Today, 4:15 PM</td>
+                      <td><button type="button" class="table-action-link" onclick="event.stopPropagation(); openEventWorkspace('rebuild-26', 'submit')">Edit ↗</button></td>
+                    </tr>
+
+                    <tr data-type="teams" onclick="openEventWorkspace('rebuild-26', 'team')">
+                      <td>
+                        <div class="activity-title-cell">
+                          <span class="activity-type-icon purple">
+                            <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                          </span>
+                          <div>
+                            <strong>Joined Team sai'steam</strong>
+                            <small class="activity-desc-sub">Individual Builder Solo Track</small>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="event-name-pill">ReBuild '26</span></td>
+                      <td><span class="status-pill active">ACTIVE SOLO</span></td>
+                      <td class="activity-date-cell">Nov 6, 2:00 PM</td>
+                      <td><button type="button" class="table-action-link" onclick="event.stopPropagation(); openEventWorkspace('rebuild-26', 'team')">Manage ↗</button></td>
+                    </tr>
+
+                    <tr data-type="all" onclick="openEventDetailsModal('quiz-2')">
+                      <td>
+                        <div class="activity-title-cell">
+                          <span class="activity-type-icon orange">
+                            <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" fill="none" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                          </span>
+                          <div>
+                            <strong>Enrolled in FirstCommit '26</strong>
+                            <small class="activity-desc-sub">Timed algorithmic challenge</small>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="event-name-pill">FirstCommit '26</span></td>
+                      <td><span class="status-pill enrolled">ENROLLED</span></td>
+                      <td class="activity-date-cell">Nov 5, 11:30 AM</td>
+                      <td><button type="button" class="table-action-link" onclick="event.stopPropagation(); openEventDetailsModal('quiz-2')">Specs ↗</button></td>
+                    </tr>
+
+                    <tr data-type="all" onclick="switchTab('certificates')">
+                      <td>
+                        <div class="activity-title-cell">
+                          <span class="activity-type-icon gold">
+                            <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+                          </span>
+                          <div>
+                            <strong>Certificate Issued (Runner-Up)</strong>
+                            <small class="activity-desc-sub">WebForge '25 Frontend Hack</small>
+                          </div>
+                        </div>
+                      </td>
+                      <td><span class="event-name-pill">WebForge '25</span></td>
+                      <td><span class="status-pill issued">ISSUED</span></td>
+                      <td class="activity-date-cell">Oct 28, 6:00 PM</td>
+                      <td><button type="button" class="table-action-link" onclick="event.stopPropagation(); switchTab('certificates')">Pass ↗</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             S02: EXPLORE EVENTS CATALOG
+             ================================================================== -->
+        <section id="view-events" class="app-view-section" style="display:none;">
+          <div class="view-header">
+            <div>
+              <h1 class="view-title">Explore Events</h1>
+              <p class="view-subtitle">
+                Discover verified university hackathons, timed technical assessments, and national coding sprints.
+              </p>
+            </div>
+          </div>
+
+          <!-- Filters & Search Bar -->
+          <div class="events-filter-bar">
+            <div class="events-filter-chips">
+              <button type="button" class="filter-chip-btn active" onclick="filterEvents('all', this)">All Competitions</button>
+              <button type="button" class="filter-chip-btn" onclick="filterEvents('hackathon', this)">Hackathons</button>
+              <button type="button" class="filter-chip-btn" onclick="filterEvents('quiz', this)">Timed Quizzes</button>
+            </div>
+
+            <div class="events-search-box">
+              <span style="color:var(--cc-ink-muted); margin-right:8px;">🔍</span>
+              <input type="text" id="eventsSearchInput" placeholder="Filter by keyword..." oninput="renderEventsCatalog()">
+            </div>
+          </div>
+
+          <!-- Event Cards Grid -->
+          <div class="events-catalog-grid" id="eventsCatalogGrid"></div>
+        </section>
+
+        <!-- ==================================================================
+             S06: MY EVENTS
+             ================================================================== -->
+        <section id="view-my-events" class="app-view-section" style="display:none;">
+          <div class="view-header">
+            <div>
+              <h1 class="view-title">My Events</h1>
+              <p class="view-subtitle">
+                Manage your active registrations, submit deliverables, and view published judging outcomes.
+              </p>
+            </div>
+          </div>
+
+          <div class="structured-list">
+            <div class="app-card-panel">
+              <div class="panel-header-row">
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <span class="badge-status-live event-badge-tag">ACTIVE ROUND</span>
+                  <strong style="font-size:16px;">ReBuild '26 — Reconstruction Hackathon</strong>
+                </div>
+                <span class="font-mono" style="font-size:11px; color:var(--cc-ink-muted);">ID: f8e7f349-039c-4dbb-a5b5</span>
+              </div>
+
+              <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; font-family:var(--cc-font-mono); font-size:11px; background:var(--cc-surface-muted); padding:12px; border-radius:var(--cc-radius-md);">
+                <div><span>STATUS</span><strong style="display:block; color:var(--cc-success); margin-top:2px;">REGISTERED (ROUND 1)</strong></div>
+                <div><span>TEAM TRACKING</span><strong style="display:block; color:var(--cc-ink); margin-top:2px;">sai'steam (SOLO)</strong></div>
+                <div><span>SUBMISSION DEADLINE</span><strong style="display:block; color:var(--cc-warm-text); margin-top:2px;">TODAY 10:00 PM IST</strong></div>
+              </div>
+
+              <div style="display:flex; justify-content:space-between; align-items:center; padding-top:10px;">
+                <span style="font-size:13px; color:var(--cc-ink-secondary);">Frontend only. GitHub repo + Live Netlify/Vercel link required.</span>
+                <button type="button" class="btn-feature-primary" onclick="openEventWorkspace('rebuild-26', 'submit')">
+                  OPEN WORKSPACE ↗
+                </button>
+              </div>
+            </div>
+
+            <div class="app-card-panel" style="margin-top:16px;">
+              <div class="panel-header-row">
+                <div style="display:flex; align-items:center; gap:10px;">
+                  <span class="badge-status-upcoming event-badge-tag">UPCOMING ASSESSMENT</span>
+                  <strong style="font-size:16px;">FirstCommit '26 Quiz Competition 2.0</strong>
+                </div>
+                <span class="font-mono" style="font-size:11px; color:var(--cc-ink-muted);">ID: 03543833-00da-4af9-b62b</span>
+              </div>
+
+              <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px; font-family:var(--cc-font-mono); font-size:11px; background:var(--cc-surface-muted); padding:12px; border-radius:var(--cc-radius-md);">
+                <div><span>STATUS</span><strong style="display:block; color:var(--cc-primary); margin-top:2px;">REGISTERED</strong></div>
+                <div><span>FORMAT</span><strong style="display:block; color:var(--cc-ink); margin-top:2px;">TIMED ASSESSMENT</strong></div>
+                <div><span>DATE</span><strong style="display:block; color:var(--cc-ink); margin-top:2px;">NOV 14–15, 2026</strong></div>
+              </div>
+
+              <div style="display:flex; justify-content:flex-end; padding-top:10px;">
+                <button type="button" class="btn-open-link" onclick="openEventDetailsModal('quiz-2')">
+                  VIEW ASSESSMENT DETAILS ↗
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             S07–S13: CONTEXTUAL EVENT WORKSPACE (REBUILD '26)
+             ================================================================== -->
+        <section id="view-workspace" class="app-view-section" style="display:none;">
+          <!-- Workspace Event Header Banner -->
+          <div class="workspace-banner">
+            <div class="workspace-banner-top">
+              <div>
+                <h1 class="view-title">ReBuild '26 Workspace</h1>
+                <p class="view-subtitle">
+                  Recreate the CampusCode user flow faithfully. Submit your GitHub repo and live demo link before deadline.
+                </p>
+              </div>
+
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="badge-live-pulse"><i></i> DEADLINE 10:00 PM IST</span>
+              </div>
+            </div>
+
+            <!-- Workspace Subtabs Nav -->
+            <div class="workspace-subtabs-nav">
+              <button type="button" class="workspace-subtab-btn active" data-subtab="overview" onclick="switchWorkspaceSubtab('overview')">
+                01 OVERVIEW & RULES
+              </button>
+              <button type="button" class="workspace-subtab-btn" data-subtab="team" onclick="switchWorkspaceSubtab('team')">
+                02 MY TEAM (HACKMATE)
+              </button>
+              <button type="button" class="workspace-subtab-btn" data-subtab="submit" onclick="switchWorkspaceSubtab('submit')">
+                03 SUBMISSION & IDEACHECK
+              </button>
+              <button type="button" class="workspace-subtab-btn" data-subtab="results" onclick="switchWorkspaceSubtab('results')">
+                04 RESULTS & LEADERBOARD
+              </button>
+              <button type="button" class="workspace-subtab-btn" data-subtab="comms" onclick="switchWorkspaceSubtab('comms')">
+                05 UPDATES & COMMS
+              </button>
+            </div>
+          </div>
+
+          <!-- Subtab 01: Overview -->
+          <div id="ws-panel-overview" class="workspace-sub-panel">
+            <div class="app-card-panel">
+              <h3 style="font-size:16px; font-weight:700;">Competition Schedule & Structure</h3>
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin:10px 0;">
+                <div style="background:var(--cc-surface-muted); padding:16px; border-radius:var(--cc-radius-md); border:1px solid var(--cc-border);">
+                  <span class="nav-badge-pill" style="margin-bottom:8px; display:inline-block;">ROUND 1 · FRIDAY</span>
+                  <h4 style="font-size:14px; font-weight:700; margin-bottom:4px;">Faithful Recreation</h4>
+                  <p style="font-size:12.5px; color:var(--cc-ink-secondary); line-height:1.45;">
+                    Rebuild Public Landing, Login, Register, and Student Portal. Submit repository & demo before 10:00 PM IST.
+                  </p>
+                </div>
+                <div style="background:var(--cc-surface-muted); padding:16px; border-radius:var(--cc-radius-md); border:1px solid var(--cc-border);">
+                  <span class="nav-badge-pill" style="margin-bottom:8px; display:inline-block; background:var(--cc-primary-subtle); color:var(--cc-primary); border-color:var(--cc-primary-border);">ROUND 2 · SATURDAY</span>
+                  <h4 style="font-size:14px; font-weight:700; margin-bottom:4px;">Creative Evolution</h4>
+                  <p style="font-size:12.5px; color:var(--cc-ink-secondary); line-height:1.45;">
+                    Top performers from Round 1 build a complete new UI in CampusCode's vibe. Frontend only, mock data fine.
+                  </p>
+                </div>
+                <div style="background:var(--cc-surface-muted); padding:16px; border-radius:var(--cc-radius-md); border:1px solid var(--cc-border);">
+                  <span class="nav-badge-pill" style="margin-bottom:8px; display:inline-block; background:#E8F5EE; color:#257849; border-color:#B7E2CA;">PRIZES & AWARDS</span>
+                  <h4 style="font-size:14px; font-weight:700; margin-bottom:4px;">Internship & Honors</h4>
+                  <p style="font-size:12.5px; color:var(--cc-ink-secondary); line-height:1.45;">
+                    Winner certificate + CampusCode SE Internship with ₹15,000 stipend. Verified credentials for all builders.
+                  </p>
+                </div>
+              </div>
+
+              <div style="padding:14px; background:var(--cc-warm-surface); border:1px solid var(--cc-warm-border); border-radius:var(--cc-radius-md); font-size:13px; color:var(--cc-warm-text); line-height:1.5;">
+                💡 <strong>Important Participation Rule:</strong> ReBuild '26 is an individual hackathon. You build alone. The team name you create on Unstop and on this portal is used strictly for organizing and tracking submissions.
+              </div>
+            </div>
+          </div>
+
+          <!-- Subtab 02: My Team (HackMate) -->
+          <div id="ws-panel-team" class="workspace-sub-panel" style="display:none;">
+            <div class="dashboard-columns-split">
+              <!-- Left: Current Registered Roster -->
+              <div class="app-card-panel">
+                <div class="panel-header-row">
+                  <h3 class="panel-header-title">
+                    <span>👥</span>
+                    <span>Submission Tracking Roster</span>
+                  </h3>
+                  <span class="nav-badge-pill">INDIVIDUAL (SOLO)</span>
+                </div>
+
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; font-family:var(--cc-font-mono); font-size:11px;">
+                  <div style="background:var(--cc-surface-muted); padding:12px; border-radius:var(--cc-radius-md); border:1px solid var(--cc-border);">
+                    <span style="color:var(--cc-ink-muted);">REGISTERED TEAM NAME</span>
+                    <strong style="display:block; font-size:14px; color:var(--cc-ink); margin-top:2px;" id="wsTeamName">sai'steam</strong>
+                  </div>
+                  <div style="background:var(--cc-surface-muted); padding:12px; border-radius:var(--cc-radius-md); border:1px solid var(--cc-border);">
+                    <span style="color:var(--cc-ink-muted);">PARTICIPATION FORMAT</span>
+                    <strong style="display:block; font-size:14px; color:var(--cc-ink); margin-top:2px;" id="wsTrackingType">Individual Participant</strong>
+                  </div>
+                  <div style="background:var(--cc-surface-muted); padding:12px; border-radius:var(--cc-radius-md); border:1px solid var(--cc-border);">
+                    <span style="color:var(--cc-ink-muted);">BUILDER NAME</span>
+                    <strong style="display:block; font-size:14px; color:var(--cc-ink); margin-top:2px;" id="wsMemberName">Sai Harshith</strong>
+                  </div>
+                  <div style="background:var(--cc-surface-muted); padding:12px; border-radius:var(--cc-radius-md); border:1px solid var(--cc-border);">
+                    <span style="color:var(--cc-ink-muted);">CAMPUSCODE ID</span>
+                    <strong style="display:block; font-size:14px; color:var(--cc-ink); margin-top:2px;" id="wsMemberId">CC-2026-8841</strong>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: HackMate Teammate Finder for Future Rounds -->
+              <div class="app-card-panel">
+                <div class="panel-header-row">
+                  <h3 class="panel-header-title">
+                    <span>✨</span>
+                    <span>HackMate Builder Graph</span>
+                  </h3>
+                  <span style="font-family:var(--cc-font-mono); font-size:10px; color:var(--cc-ink-muted);">CROSS-CAMPUS MATCHES</span>
+                </div>
+                <div class="structured-list" id="hackmateBuildersGrid"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subtab 03: Submission & IdeaCheck -->
+          <div id="ws-panel-submit" class="workspace-sub-panel" style="display:none;">
+            <div class="submission-form-shell">
+              <!-- Left: Submission Form -->
+              <div class="app-card-panel">
+                <div class="panel-header-row">
+                  <div>
+                    <h3 style="font-size:16px; font-weight:700;">Round 1 Deliverables Form</h3>
+                    <p style="font-size:12.5px; color:var(--cc-ink-muted); margin-top:2px;">
+                      Enter your public repository and live hosted preview link.
+                    </p>
+                  </div>
+                  <span style="font-family:var(--cc-font-mono); font-size:11px; color:var(--cc-ink-muted);">
+                    Last Draft: <strong id="subLastSavedTime">Today at 08:30 PM</strong>
+                  </span>
+                </div>
+
+                <form class="auth-form" onsubmit="event.preventDefault(); runSubmissionPreflight();">
+                  <div class="form-group">
+                    <label for="subGithubUrl">GITHUB REPOSITORY URL *</label>
+                    <div class="input-container">
+                      <span class="input-prefix">🔗</span>
+                      <input type="url" id="subGithubUrl" placeholder="https://github.com/username/campuscode-rebuild" value="https://github.com/sai-harshith/campuscode-rebuild" required>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="subDemoUrl">LIVE DEMO URL (NETLIFY / VERCEL / GITHUB PAGES) *</label>
+                    <div class="input-container">
+                      <span class="input-prefix">⚡</span>
+                      <input type="url" id="subDemoUrl" placeholder="https://campuscode-rebuild.netlify.app" value="https://campuscode-rebuild.netlify.app" required>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="subDriveUrl">OPTIONAL DRIVE WALKTHROUGH LINK</label>
+                    <div class="input-container">
+                      <span class="input-prefix">📁</span>
+                      <input type="url" id="subDriveUrl" placeholder="https://drive.google.com/file/d/..." value="https://drive.google.com/file/d/1campuscode-walkthrough-demo">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="subNotes">NOTES FOR THE EVALUATION BOARD</label>
+                    <textarea id="subNotes" rows="4" style="padding:12px; border:1px solid var(--cc-border); border-radius:var(--cc-radius-md); font-family:var(--cc-font-sans); font-size:13px; outline:none; background:var(--cc-surface-muted);" placeholder="Describe design decisions, responsiveness, and architecture...">Faithful recreation of all core views in pure semantic HTML/CSS/JS with warm editorial aesthetics, zero build steps, and deterministic preflight checks.</textarea>
+                  </div>
+
+                  <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:6px;">
+                    <button type="button" class="btn-open-link" onclick="handleSaveDraft()">
+                      💾 SAVE DRAFT
+                    </button>
+                    <button type="submit" class="btn-feature-secondary">
+                      RUN IDEACHECK PREFLIGHT ↗
+                    </button>
+                    <button type="button" id="btnLockSubmission" class="btn-feature-primary" onclick="openConfirmSubmissionModal()">
+                      LOCK FINAL SUBMISSION ↗
+                    </button>
+                  </div>
+                </form>
+              </div>
+
+              <!-- Right: IdeaCheck Preflight Status Card -->
+              <div class="preflight-checker-card">
+                <div class="panel-header-row" style="border-color:var(--cc-border);">
+                  <h3 style="font-size:15px; font-weight:700; display:flex; align-items:center; gap:6px;">
+                    <span>✨</span>
+                    <span>IdeaCheck AI Preflight</span>
+                  </h3>
+                  <span class="nav-badge-pill nav-badge-blue">AUTOMATED</span>
+                </div>
+
+                <div class="preflight-check-item">
+                  <div class="check-icon pass" id="preflightGitIcon">✓</div>
+                  <div>
+                    <strong style="color:var(--cc-ink);">GitHub Repository Reachable</strong>
+                    <p style="font-size:11.5px; color:var(--cc-ink-muted);">Repository format verified and contains index.html, styles, and scripts.</p>
+                  </div>
+                </div>
+
+                <div class="preflight-check-item">
+                  <div class="check-icon pass" id="preflightDemoIcon">✓</div>
+                  <div>
+                    <strong style="color:var(--cc-ink);">Live Hosting Response Code</strong>
+                    <p style="font-size:11.5px; color:var(--cc-ink-muted);">Live URL returns HTTP 200 OK with zero mixed-content warnings.</p>
+                  </div>
+                </div>
+
+                <div class="preflight-check-item">
+                  <div class="check-icon pass">✓</div>
+                  <div>
+                    <strong style="color:var(--cc-ink);">Responsive Viewport Integrity</strong>
+                    <p style="font-size:11.5px; color:var(--cc-ink-muted);">Layout passes 360px up to 2048px without horizontal scrolling.</p>
+                  </div>
+                </div>
+
+                <!-- IdeaCheck AI Scores Badge -->
+                <div class="ideacheck-score-badge" id="preflightReportBox">
+                  <div class="ideacheck-score-item">
+                    <strong>88%</strong>
+                    <span>NOVELTY</span>
+                  </div>
+                  <div class="ideacheck-score-item">
+                    <strong>94%</strong>
+                    <span>FEASIBILITY</span>
+                  </div>
+                  <div class="ideacheck-score-item">
+                    <strong>100%</strong>
+                    <span>COMPLIANCE</span>
+                  </div>
+                </div>
+
+                <p style="font-size:12px; color:var(--cc-ink-muted); line-height:1.45;">
+                  IdeaCheck preflight ensures you never lose points for dead links, broken viewports, or formatting failures before judges evaluate your code.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subtab 04: Results & Leaderboard -->
+          <div id="ws-panel-results" class="workspace-sub-panel" style="display:none;">
+            <div class="app-card-panel">
+              <div class="panel-header-row">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <span class="badge-status-live event-badge-tag">PUBLISHED STATUS</span>
+                  <strong style="font-size:16px;">Round 1 Evaluation Outcome</strong>
+                </div>
+                <span class="font-mono" style="font-size:11px; color:var(--cc-success);">● QUALIFIED FOR ROUND 2</span>
+              </div>
+
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; margin:14px 0;">
+                <div style="background:var(--cc-surface-muted); padding:16px; border-radius:var(--cc-radius-md); border:1px solid var(--cc-border);">
+                  <span style="font-family:var(--cc-font-mono); font-size:10px; color:var(--cc-ink-muted);">OVERALL SCORE</span>
+                  <strong style="display:block; font-size:28px; font-weight:800; color:var(--cc-primary); margin-top:4px;">96 / 100</strong>
+                </div>
+                <div style="background:var(--cc-surface-muted); padding:16px; border-radius:var(--cc-radius-md); border:1px solid var(--cc-border);">
+                  <span style="font-family:var(--cc-font-mono); font-size:10px; color:var(--cc-ink-muted);">QUALIFICATION TIER</span>
+                  <strong style="display:block; font-size:28px; font-weight:800; color:var(--cc-success); margin-top:4px;">TIER 1 (TOP 5%)</strong>
+                </div>
+                <div style="background:var(--cc-surface-muted); padding:16px; border-radius:var(--cc-radius-md); border:1px solid var(--cc-border);">
+                  <span style="font-family:var(--cc-font-mono); font-size:10px; color:var(--cc-ink-muted);">ROUND 2 INVITATION</span>
+                  <strong style="display:block; font-size:18px; font-weight:800; color:var(--cc-ink); margin-top:8px;">CONFIRMED</strong>
+                </div>
+              </div>
+
+              <div style="padding:16px; background:var(--cc-surface-muted); border-radius:var(--cc-radius-md); border:1px solid var(--cc-border); margin-top:8px;">
+                <h4 style="font-size:13.5px; font-weight:700; margin-bottom:6px;">Evaluation Board Feedback</h4>
+                <p style="font-size:13px; color:var(--cc-ink-secondary); line-height:1.5;">
+                  "Outstanding submission. Faithful recreation across all four pages with warm editorial typography, semantic token layer, zero horizontal overflow, and fully interactive student dashboard workflows. Clean architectural separation."
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subtab 05: Updates & Comms -->
+          <div id="ws-panel-comms" class="workspace-sub-panel" style="display:none;">
+            <div class="app-card-panel">
+              <h3 style="font-size:16px; font-weight:700; margin-bottom:12px;">Official Broadcast Updates</h3>
+              <div class="structured-list">
+                <div class="structured-item-row" style="background:var(--cc-surface);">
+                  <div class="structured-item-left">
+                    <span style="font-size:20px;">📢</span>
+                    <div class="item-meta-col">
+                      <span class="item-title-text">Round 1 Submission Window Activated</span>
+                      <span class="item-subtext">5 NOV 2026 · TEAM CAMPUSCODE · SYNCED WITH WHATSAPP CHANNEL</span>
+                      <p style="font-size:12.5px; color:var(--cc-ink-secondary); margin-top:4px;">
+                        The submission portal is now accepting GitHub repositories and live URLs. Ensure your repo is public before locking.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             P01–P03: PROFILE, MASCOT CHOOSER & SKILLS
+             ================================================================== -->
+        <section id="view-profile" class="app-view-section" style="display:none;">
+          <div class="view-header">
+            <div>
+              <h1 class="view-title">Profile & Skills</h1>
+              <p class="view-subtitle">
+                Manage your student identity, choose your official CampusCode mascot, and keep your tech stack up to date.
+              </p>
+            </div>
+          </div>
+
+          <div id="profileSaveAlert" class="auth-alert success" style="margin-bottom:16px; display:none;">
+            ✓ Changes saved to CampusCode state.
+          </div>
+
+          <div class="profile-shell-grid">
+            <!-- Left: Mascot Chooser & Avatar Preview -->
+            <div class="mascot-avatar-card">
+              <div class="avatar-large-preview" id="profileAvatarPreview"></div>
+
+              <div>
+                <h3 style="font-size:18px; font-weight:800;" id="profileDisplayName">Sai Harshith</h3>
+                <span class="font-mono" style="font-size:11.5px; color:var(--cc-primary);" id="profileDisplayId">CC-2026-8841</span>
+                <p style="font-size:12px; color:var(--cc-ink-muted); margin-top:2px;" id="profileDisplayCollege">College of Engineering, Guindy</p>
+              </div>
+
+              <!-- Mascot Selector -->
+              <div style="width:100%; text-align:left; border-top:1px solid var(--cc-border); padding-top:14px;">
+                <span style="font-family:var(--cc-font-mono); font-size:10.5px; font-weight:600; color:var(--cc-ink-muted); letter-spacing:0.5px;">
+                  SELECT CAMPUSCODE MASCOT
+                </span>
+                <div class="mascot-selector-grid" id="mascotGridContainer"></div>
+              </div>
+
+              <!-- Photo Upload Alternative -->
+              <div style="width:100%; border-top:1px solid var(--cc-border); padding-top:12px;">
+                <label for="photoUploadInput" class="btn-feature-secondary" style="width:100%; justify-content:center; cursor:pointer;">
+                  <span>📷</span>
+                  <span>UPLOAD CUSTOM PHOTO</span>
+                </label>
+                <input type="file" id="photoUploadInput" accept="image/*" style="display:none;" onchange="handlePhotoUpload(event)">
+              </div>
+            </div>
+
+            <!-- Right: Personal Details & Skills -->
+            <div class="app-card-panel">
+              <h3 style="font-size:16px; font-weight:700;">Student Information</h3>
+
+              <form class="auth-form" onsubmit="handleSaveProfile(event)">
+                <div class="form-group">
+                  <label for="inputProfileName">FULL NAME</label>
+                  <div class="input-container">
+                    <input type="text" id="inputProfileName" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputProfileEmail">EMAIL ADDRESS (VERIFIED)</label>
+                  <div class="input-container">
+                    <input type="email" id="inputProfileEmail" disabled style="opacity:0.7;">
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputProfileCollege">COLLEGE / INSTITUTION</label>
+                  <div class="input-container">
+                    <input type="text" id="inputProfileCollege" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputProfileBio">BIO</label>
+                  <textarea id="inputProfileBio" rows="3" style="padding:10px 14px; border:1px solid var(--cc-border); border-radius:var(--cc-radius-md); font-family:var(--cc-font-sans); font-size:13px; outline:none; background:var(--cc-surface-muted);"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputProfileSkills">TECH STACK & SKILLS (COMMA SEPARATED)</label>
+                  <div class="input-container">
+                    <input type="text" id="inputProfileSkills" oninput="renderSkillChips(this.value)">
+                  </div>
+
+                  <!-- Interactive Skill Tags -->
+                  <div class="skills-tags-cluster" id="skillsClusterContainer"></div>
+
+                  <!-- Quick Add Suggestions -->
+                  <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;">
+                    <span style="font-family:var(--cc-font-mono); font-size:10px; color:var(--cc-ink-muted); align-self:center;">ADD QUICK:</span>
+                    <button type="button" class="skill-add-chip" onclick="addSkill('TypeScript')">+ TypeScript</button>
+                    <button type="button" class="skill-add-chip" onclick="addSkill('Next.js')">+ Next.js</button>
+                    <button type="button" class="skill-add-chip" onclick="addSkill('Tailwind CSS')">+ Tailwind CSS</button>
+                    <button type="button" class="skill-add-chip" onclick="addSkill('Python')">+ Python</button>
+                    <button type="button" class="skill-add-chip" onclick="addSkill('Docker')">+ Docker</button>
+                  </div>
+                </div>
+
+                <div style="display:flex; justify-content:flex-end; margin-top:12px;">
+                  <button type="submit" class="btn-feature-primary">
+                    SAVE PROFILE CHANGES ↗
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             P05: DIGITAL STUDENT ID
+             ================================================================== -->
+        <section id="view-digital-id" class="app-view-section" style="display:none;">
+          <div class="view-header text-center">
+            <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+              <h1 class="view-title" style="margin:4px 0 8px 0;">Digital Student ID</h1>
+              <p class="view-subtitle" style="margin:0 auto; color:var(--cc-ink-muted);">
+                Tap card to arise & verify credential · Hover to tilt
+              </p>
+            </div>
+          </div>
+
+          <!-- Glass Dissolve Card Stage (User Code Implementation) -->
+          <div class="glass-card-stage" id="glassCardStage">
+            <!-- Ambient light pooling at bottom of the frame -->
+            <div class="glass-ambient-pool" id="glassAmbientPool" aria-hidden="true"></div>
+
+            <!-- 3D Perspective Card Wrapper -->
+            <div class="glass-card-tilt-wrap" id="glassCardTiltWrap">
+              <!-- Flowing light gradient flare behind and below the concave curve -->
+              <div class="glass-melt-flow-flare" id="glassMeltFlowFlare" aria-hidden="true">
+                <div class="glass-melt-flow-inner"></div>
+              </div>
+
+              <!-- Interactive Glass Card (Tap to Arise) -->
+              <div class="glass-dissolve-card" id="glassDissolveCard" role="button" tabindex="0"
+                   aria-label="Student Digital ID Pass. Tap to arise and verify credential."
+                   onclick="toggleGlassCardArise()"
+                   onkeydown="if(event.key==='Enter'||event.key===' ') { event.preventDefault(); toggleGlassCardArise(); }">
+
+                <!-- Dynamic cursor sheen highlight -->
+                <div class="glass-sheen" id="glassSheen"></div>
+
+                <!-- Top Row: Brand & Verification Pill -->
+                <div class="pass-card-header">
+                  <div class="pass-brand-lockup">
+                    <img src="assets/gradient-cc-logo.png" alt="CampusCode" class="pass-brand-logo">
+                    <div class="pass-brand-text">
+                      <strong>CAMPUSCODE</strong>
+                      <small>IDENTITY PASS · 2026</small>
+                    </div>
+                  </div>
+                  <div class="pass-verified-badge" id="passVerifiedBadge">
+                    <span class="live-dot-green"></span>
+                    <span>VERIFIED 2026</span>
+                  </div>
+                </div>
+
+                <!-- Mid Row: Metallic Microchip & Contactless Symbol -->
+                <div class="pass-card-midrow">
+                  <div class="pass-smart-chip" title="EMV Cryptographic Key">
+                    <div class="chip-line h-line"></div>
+                    <div class="chip-line v-line"></div>
+                    <div class="chip-core"></div>
+                  </div>
+                  <div class="pass-nfc-symbol" title="NFC Contactless Check-in">
+                    <svg viewBox="0 0 24 24" class="nfc-icon" stroke="currentColor" fill="none" stroke-width="2">
+                      <path d="M7 6a10 10 0 0 1 0 12M10 8a6 6 0 0 1 0 8M13 10a2 2 0 0 1 0 4"/>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Card Body: Avatar & Student Details -->
+                <div class="pass-card-body">
+                  <div class="pass-avatar" id="passAvatarContainer"></div>
+                  <div class="pass-student-details">
+                    <h3 id="passName">Sai Harshith</h3>
+                    <div class="pass-student-id" id="passId">CC-2026-8841</div>
+                    <div class="pass-college-text" id="passCollege">College of Engineering, Guindy</div>
+                  </div>
+                </div>
+
+                <!-- Card Footer: Hash & QR Code -->
+                <div class="pass-card-footer">
+                  <div class="pass-meta-labels">
+                    <div class="meta-item"><span class="meta-k">ROLE:</span> <strong class="meta-v">VERIFIED STUDENT BUILDER</strong></div>
+                    <div class="meta-item"><span class="meta-k">ISSUED:</span> <strong class="meta-v">NOV 2026 · CHENNAI ARENA</strong></div>
+                    <div class="meta-item"><span class="meta-k">HASH:</span> <code class="pass-hash">0x9b32a76ef109</code></div>
+                  </div>
+
+                  <div class="pass-qr-box" id="passQrContainer" title="Scan to verify student credential on CampusCode ledger"></div>
+                </div>
+
+                <!-- Hologram security strip watermark -->
+                <div class="pass-hologram-strip" aria-hidden="true"></div>
+              </div>
+            </div>
+
+            <!-- Interactive Hint Pill -->
+            <div class="glass-card-hint-pill" id="glassCardHintPill" onclick="toggleGlassCardArise()">
+              <span class="hint-icon" id="glassCardHintIcon">✨</span>
+              <span id="glassCardHintText">Tap card to arise & verify · Hover to tilt</span>
+            </div>
+          </div>
+
+          <!-- Bottom Action Buttons -->
+          <div class="pass-actions-container">
+            <button type="button" class="btn-pass-download" onclick="alert('Digital Pass PDF exported with verifiable cryptographic watermark.')">
+              <span>DOWNLOAD PASS (PDF) ↗</span>
+            </button>
+            <button type="button" class="btn-pass-share" onclick="alert('Digital ID verification link copied to clipboard.')">
+              <span>SHARE CREDENTIAL ⎘</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             P04: CERTIFICATES & CREDENTIALS
+             ================================================================== -->
+        <section id="view-certificates" class="app-view-section" style="display:none;">
+          <div class="view-header">
+            <div>
+              <h1 class="view-title">Verified Certificates</h1>
+              <p class="view-subtitle">
+                Inspect, verify and download cryptographically signed certificates earned from CampusCode hackathons.
+              </p>
+            </div>
+          </div>
+
+          <div class="events-catalog-grid">
+            <div class="event-catalog-card">
+              <div class="event-card-top">
+                <span class="badge-status-live event-badge-tag">VERIFIED CREDENTIAL</span>
+                <span class="font-mono" style="font-size:11px; color:var(--cc-ink-muted);">15 OCT 2026</span>
+              </div>
+              <div class="event-card-body">
+                <h3>FirstCommit '26 Quiz 1.0</h3>
+                <p>Awarded for scoring in the Top 10% nationwide during the national systems and algorithms assessment.</p>
+              </div>
+              <div class="event-card-meta-grid">
+                <div class="event-meta-cell">
+                  <span>CREDENTIAL ID</span>
+                  <strong>CERT-2026-FC01-992</strong>
+                </div>
+                <div class="event-meta-cell">
+                  <span>HASH PROOF</span>
+                  <strong>0x9b32...f87e</strong>
+                </div>
+              </div>
+              <div class="event-card-footer">
+                <button type="button" class="btn-open-link" onclick="verifyCertificate('CERT-2026-FC01-992')">
+                  VERIFY & PREVIEW ↗
+                </button>
+              </div>
+            </div>
+
+            <div class="event-catalog-card">
+              <div class="event-card-top">
+                <span class="badge-status-live event-badge-tag">ISSUED CREDENTIAL</span>
+                <span class="font-mono" style="font-size:11px; color:var(--cc-ink-muted);">07 NOV 2026</span>
+              </div>
+              <div class="event-card-body">
+                <h3>ReBuild '26 — Reconstruction Hackathon</h3>
+                <p>Awarded for qualifying Round 1 with faithful recreation of the 4 CampusCode core portal interfaces.</p>
+              </div>
+              <div class="event-card-meta-grid">
+                <div class="event-meta-cell">
+                  <span>CREDENTIAL ID</span>
+                  <strong>CERT-2026-RB26-004</strong>
+                </div>
+                <div class="event-meta-cell">
+                  <span>HASH PROOF</span>
+                  <strong>0x7e29...647c</strong>
+                </div>
+              </div>
+              <div class="event-card-footer">
+                <button type="button" class="btn-open-link" onclick="verifyCertificate('CERT-2026-RB26-004')">
+                  VERIFY & PREVIEW ↗
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             GUIDE & FAQ VIEW
+             ================================================================== -->
+        <section id="view-guide" class="app-view-section" style="display:none;">
+          <div class="view-header">
+            <div>
+              <h1 class="view-title">Student Guide & Rules</h1>
+              <p class="view-subtitle">
+                Official step-by-step rules, code of conduct, and submission guidelines for all CampusCode competitions.
+              </p>
+            </div>
+          </div>
+
+          <div class="app-card-panel">
+            <h3 style="font-size:16px; font-weight:700; margin-bottom:12px;">Frequently Asked Rule Questions</h3>
+            <div id="rulebotFaqContainer"></div>
+          </div>
+        </section>
+
+        <!-- ==================================================================
+             HELP & SUPPORT VIEW
+             ================================================================== -->
+        <section id="view-support" class="app-view-section" style="display:none;">
+          <div class="view-header">
+            <div>
+              <h1 class="view-title">Help & Support</h1>
+              <p class="view-subtitle">
+                Connect directly with hackathon organizers, technical mentors, and the student community.
+              </p>
+            </div>
+          </div>
+
+          <div class="dashboard-columns-split">
+            <div class="app-card-panel">
+              <h3 style="font-size:16px; font-weight:700;">Direct Contact Channels</h3>
+              <p style="font-size:13.5px; color:var(--cc-ink-secondary); line-height:1.5;">
+                For evaluation disputes, submission issues, or team reassignment requests:
+              </p>
+
+              <div class="structured-list" style="margin-top:12px;">
+                <div class="structured-item-row">
+                  <div class="structured-item-left">
+                    <span style="font-size:20px;">✉️</span>
+                    <div class="item-meta-col">
+                      <span class="item-title-text">Official Support Email</span>
+                      <a href="mailto:support@campuscode.co.in" style="font-family:var(--cc-font-mono); font-size:12px; color:var(--cc-primary);">support@campuscode.co.in</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="structured-item-row">
+                  <div class="structured-item-left">
+                    <span style="font-size:20px;">💬</span>
+                    <div class="item-meta-col">
+                      <span class="item-title-text">Official WhatsApp Community</span>
+                      <span class="item-subtext">Announcements & live technical mentor hours</span>
+                    </div>
+                  </div>
+                  <button type="button" class="btn-open-link" onclick="alert('Opening official WhatsApp Community channel...')">
+                    JOIN GROUP ↗
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="app-card-panel">
+              <h3 style="font-size:16px; font-weight:700;">Organizer Notice</h3>
+              <p style="font-size:13px; color:var(--cc-ink-secondary); line-height:1.5;">
+                CampusCode hackathons follow strict zero-plagiarism policies. Preflight and code integrity checks are executed deterministically.
+              </p>
+              <div style="margin-top:14px; background:var(--cc-surface-muted); padding:12px; border-radius:var(--cc-radius-md); font-family:var(--cc-font-mono); font-size:11px;">
+                ORGANIZER: CampusCode Arena Technical Board<br>
+                VENUE: Online / Anna University Guindy Track
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       DRAWERS & MODALS
+       ======================================================================== -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="closeAllDrawers()"></div>
+
+  <!-- Notification Centre Drawer -->
+  <aside class="slide-drawer" id="notifDrawer" role="dialog" aria-label="Notifications">
+    <div class="drawer-header">
+      <h3>Notification Centre</h3>
+      <button type="button" class="drawer-close-btn" onclick="closeAllDrawers()" aria-label="Close notifications">×</button>
+    </div>
+
+    <!-- Notification Filter Tabs -->
+    <div style="display:flex; gap:6px; padding:12px 24px; border-bottom:1px solid var(--cc-border); background:var(--cc-surface-muted);">
+      <button type="button" class="filter-chip-btn notif-filter-btn active" onclick="filterNotifications('all', this)">All</button>
+      <button type="button" class="filter-chip-btn notif-filter-btn" onclick="filterNotifications('events', this)">Events</button>
+      <button type="button" class="filter-chip-btn notif-filter-btn" onclick="filterNotifications('team', this)">Team</button>
+      <button type="button" class="filter-chip-btn notif-filter-btn" onclick="filterNotifications('system', this)">System</button>
+      <button type="button" style="margin-left:auto; background:transparent; border:none; font-family:var(--cc-font-mono); font-size:10.5px; color:var(--cc-primary); cursor:pointer;" onclick="markAllNotificationsRead()">
+        Mark all read
+      </button>
+    </div>
+
+    <div class="drawer-body" id="notifListContainer"></div>
+  </aside>
+
+  <!-- CampusCode Assistant / RuleBot Drawer -->
+  <aside class="slide-drawer" id="assistantDrawer" role="dialog" aria-label="RuleBot AI Assistant">
+    <div class="drawer-header">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span>✨</span>
+        <h3 style="font-size:16px;">RuleBot AI Assistant</h3>
+      </div>
+      <button type="button" class="drawer-close-btn" onclick="closeAllDrawers()" aria-label="Close assistant">×</button>
+    </div>
+
+    <div class="drawer-body" style="padding-bottom:10px;">
+      <!-- Quick Prompts Chips -->
+      <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:12px;">
+        <span style="font-family:var(--cc-font-mono); font-size:10px; color:var(--cc-ink-muted);">FREQUENT PROMPTS</span>
+        <button type="button" class="filter-chip-btn" style="text-align:left; border-radius:8px;" onclick="askAssistantPrompt('What are the Round 1 rules for ReBuild \'26?')">
+          "What are the Round 1 rules for ReBuild '26?"
+        </button>
+        <button type="button" class="filter-chip-btn" style="text-align:left; border-radius:8px;" onclick="askAssistantPrompt('Can I participate in a team for ReBuild \'26?')">
+          "Can I participate in a team for ReBuild '26?"
+        </button>
+        <button type="button" class="filter-chip-btn" style="text-align:left; border-radius:8px;" onclick="askAssistantPrompt('How does IdeaCheck calculate the novelty score?')">
+          "How does IdeaCheck calculate the novelty score?"
+        </button>
+      </div>
+
+      <!-- Chat History -->
+      <div id="assistantChatHistory" style="flex:1; display:flex; flex-direction:column; gap:10px; overflow-y:auto; padding-right:4px;">
+        <div style="align-self:flex-start; background:var(--cc-surface-muted); border:1px solid var(--cc-border); color:var(--cc-ink); padding:12px 14px; border-radius:12px 12px 12px 2px; font-size:13px; line-height:1.45;">
+          <span style="font-family:var(--cc-font-mono); font-size:9.5px; color:var(--cc-primary); display:block; margin-bottom:4px; font-weight:700;">CAMPUSCODE RULEBOT</span>
+          Hi Sai! I am your contextual assistant for ReBuild '26 and CampusCode hackathons. Ask me any rule, deadline or submission question.
+        </div>
+      </div>
+    </div>
+
+    <!-- Input Footer -->
+    <div style="padding:14px 20px; border-top:1px solid var(--cc-border); background:var(--cc-surface); display:flex; gap:8px;">
+      <input type="text" id="assistantChatInput" placeholder="Ask RuleBot anything..." style="flex:1; padding:8px 12px; border:1px solid var(--cc-border); border-radius:var(--cc-radius-md); font-size:13px; outline:none;" onkeydown="if(event.key==='Enter') handleAssistantSubmit()">
+      <button type="button" class="btn-feature-primary" onclick="handleAssistantSubmit()" style="padding:8px 14px;">
+        SEND
+      </button>
+    </div>
+  </aside>
+
+  <!-- Command Palette Modal (⌘K) -->
+  <div class="cmd-modal-wrap" id="cmdModal" onclick="if(event.target===this) closeCommandPalette()">
+    <div class="cmd-palette-box">
+      <div class="cmd-search-header">
+        <span>🔍</span>
+        <input type="text" id="cmdInput" placeholder="Type a command or search events..." autocomplete="off">
+        <kbd style="font-family:var(--cc-font-mono); font-size:10px; background:var(--cc-surface-muted); border:1px solid var(--cc-border); padding:2px 6px; border-radius:4px; color:var(--cc-ink-muted);">ESC</kbd>
+      </div>
+      <div class="cmd-results-list" id="cmdResults"></div>
+    </div>
+  </div>
+
+  <!-- Event Details Modal -->
+  <div class="cmd-modal-wrap" id="eventDetailsModal" onclick="if(event.target===this) closeModal('eventDetailsModal')">
+    <div class="cmd-palette-box" style="width:680px; max-width:92vw; padding:24px;" id="eventDetailsModalBody"></div>
+  </div>
+
+  <!-- Certificate Modal -->
+  <div class="cmd-modal-wrap" id="certModal" onclick="if(event.target===this) closeModal('certModal')">
+    <div class="cmd-palette-box" style="width:640px; max-width:92vw; padding:24px;" id="certModalBody"></div>
+  </div>
+
+  <!-- Submission Final Confirmation Modal -->
+  <div class="cmd-modal-wrap" id="submissionConfirmModal" onclick="if(event.target===this) closeModal('submissionConfirmModal')">
+    <div class="cmd-palette-box" style="width:520px; max-width:92vw; padding:24px;">
+      <div style="font-family:var(--cc-font-mono); font-size:11px; color:var(--cc-warm-text); font-weight:700; margin-bottom:6px;">CONFIRM SUBMISSION LOCK</div>
+      <h3 style="font-family:var(--cc-font-display); font-size:26px; font-weight:400; margin-bottom:10px;">Lock Round 1 Project?</h3>
+      <p style="font-size:13px; color:var(--cc-ink-secondary); line-height:1.5; margin-bottom:16px;">
+        You are about to lock your project for evaluation under <strong>sai'steam</strong>:
+      </p>
+
+      <div style="background:var(--cc-surface-muted); padding:12px 14px; border-radius:var(--cc-radius-md); border:1px solid var(--cc-border); font-family:var(--cc-font-mono); font-size:11.5px; margin-bottom:20px;">
+        <div><span>GITHUB:</span> <strong id="confirmModalGithub" style="word-break:break-all;"></strong></div>
+        <div style="margin-top:6px;"><span>DEMO:</span> <strong id="confirmModalDemo" style="word-break:break-all;"></strong></div>
+      </div>
+
+      <p style="font-size:12px; color:var(--cc-danger); margin-bottom:20px;">
+        ⚠️ Once locked, your submission timestamp is permanently recorded on the evaluation board.
+      </p>
+
+      <div style="display:flex; justify-content:flex-end; gap:10px;">
+        <button type="button" class="sidebar-sub-btn" onclick="closeModal('submissionConfirmModal')">Cancel</button>
+        <button type="button" class="btn-feature-primary" onclick="executeFinalSubmission()">
+          YES, LOCK SUBMISSION ↗
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="assets/js/student-app.js"></script>
+</body>
+</html>

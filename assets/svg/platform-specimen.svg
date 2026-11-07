@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="networkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3E4A2B"/>
+      <stop offset="50%" stop-color="#667044"/>
+      <stop offset="100%" stop-color="#C6A84A"/>
+    </linearGradient>
+
+    <linearGradient id="softLeafFill" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4B5C32" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#8B9863" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#D5D2B8" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Scientific Grid & Registration -->
+  <g stroke="#D5D2B8" stroke-width="0.8" opacity="0.6">
+    <line x1="80" y1="50" x2="80" y2="550"/>
+    <line x1="240" y1="50" x2="240" y2="550"/>
+    <line x1="400" y1="50" x2="400" y2="550"/>
+    <line x1="560" y1="50" x2="560" y2="550"/>
+    <line x1="720" y1="50" x2="720" y2="550"/>
+    
+    <line x1="50" y1="100" x2="750" y2="100"/>
+    <line x1="50" y1="250" x2="750" y2="250"/>
+    <line x1="50" y1="400" x2="750" y2="400"/>
+    <line x1="50" y1="500" x2="750" y2="500"/>
+
+    <!-- Intersect crosses -->
+    <path d="M 235 250 H 245 M 240 245 V 255" />
+    <path d="M 400 245 V 255 M 395 250 H 405" />
+    <path d="M 560 245 V 255 M 555 250 H 565" />
+    <path d="M 400 395 V 405 M 395 400 H 405" />
+  </g>
+
+  <!-- Specimen Contour: Leaf Base transitioning to network -->
+  <path d="M 120 480 
+           C 160 400, 220 340, 310 320 
+           C 420 300, 520 230, 600 140 
+           C 650 220, 640 330, 560 410 
+           C 470 500, 320 540, 180 520 Z" 
+        fill="url(#softLeafFill)" 
+        stroke="#667044" 
+        stroke-width="1.2" 
+        stroke-dasharray="4 2"/>
+
+  <!-- Veins evolving into digital graph nodes -->
+  <!-- Stem path -->
+  <path class="platform-draw-path" 
+        d="M 140 500 C 220 420, 320 350, 440 280 C 530 230, 620 160, 680 90" 
+        stroke="url(#networkGrad)" 
+        stroke-width="3" 
+        stroke-linecap="round"/>
+
+  <!-- Branching paths connecting into nodes -->
+  <g class="platform-branches" stroke="#8B9863" stroke-linecap="round" fill="none">
+    <path class="platform-draw-path" stroke-width="2" d="M 220 420 C 260 360, 310 310, 360 270 L 400 240"/>
+    <path class="platform-draw-path" stroke-width="1.6" d="M 310 310 L 330 240 L 370 200"/>
+
+    <path class="platform-draw-path" stroke-width="2" d="M 320 350 C 380 340, 440 350, 500 380 L 560 410"/>
+    <path class="platform-draw-path" stroke-width="1.5" d="M 440 350 L 490 320 L 540 310"/>
+
+    <path class="platform-draw-path" stroke-width="2.2" d="M 440 280 C 500 270, 560 250, 610 210 L 670 190"/>
+    <path class="platform-draw-path" stroke-width="1.5" d="M 530 230 L 570 180 L 630 140"/>
+
+    <path class="platform-draw-path" stroke-width="1.8" d="M 500 380 L 550 440 L 610 460"/>
+    <path class="platform-draw-path" stroke-width="1.4" d="M 360 270 L 390 190 L 450 150"/>
+  </g>
+
+  <!-- Network Nodes with Pulse & Botanical Rings -->
+  <g class="platform-nodes">
+    <!-- Root Node: Idea (Clay accent) -->
+    <circle cx="140" cy="500" r="7" fill="#C8794D" stroke="#FFFDF4" stroke-width="2"/>
+    <circle cx="140" cy="500" r="14" stroke="#C8794D" stroke-width="1" opacity="0.4" stroke-dasharray="3 3"/>
+    <text x="140" y="535" font-family="'IBM Plex Mono', monospace" font-size="9" fill="#252A1D" text-anchor="middle" font-weight="600">01. FIRST SKETCH</text>
+
+    <!-- Branch Node: Team / Match (Olive) -->
+    <circle cx="360" cy="270" r="6" fill="#667044" stroke="#FFFDF4" stroke-width="2"/>
+    <circle cx="360" cy="270" r="12" stroke="#667044" stroke-width="1" opacity="0.4"/>
+    <text x="360" y="295" font-family="'IBM Plex Mono', monospace" font-size="9" fill="#252A1D" text-anchor="middle">COLLABORATOR MATCH</text>
+
+    <!-- Branch Node: Build (Brass) -->
+    <circle cx="490" cy="320" r="6.5" fill="#C6A84A" stroke="#FFFDF4" stroke-width="2"/>
+    <text x="490" y="342" font-family="'IBM Plex Mono', monospace" font-size="9" fill="#252A1D" text-anchor="middle">PROTOTYPE NODE</text>
+
+    <!-- Terminal Node: Shipped / Arena (Signal Blue accent) -->
+    <circle cx="680" cy="90" r="8" fill="#355E9B" stroke="#FFFDF4" stroke-width="2"/>
+    <circle cx="680" cy="90" r="18" stroke="#355E9B" stroke-width="1.2" opacity="0.5" stroke-dasharray="4 2"/>
+    <text x="680" y="65" font-family="'IBM Plex Mono', monospace" font-size="9" fill="#252A1D" text-anchor="middle" font-weight="600">04. SHIPPED TO ARENA</text>
+
+    <!-- Intermediate Nodes -->
+    <circle cx="610" cy="210" r="5" fill="#8B9863" stroke="#FFFDF4" stroke-width="1.5"/>
+    <circle cx="560" cy="410" r="5" fill="#8B9863" stroke="#FFFDF4" stroke-width="1.5"/>
+    <circle cx="450" cy="150" r="4.5" fill="#8B9863" stroke="#FFFDF4" stroke-width="1.5"/>
+    <circle cx="630" cy="140" r="5" fill="#C6A84A" stroke="#FFFDF4" stroke-width="1.5"/>
+  </g>
+
+  <!-- Herbarium Margin Legend -->
+  <g font-family="'IBM Plex Mono', monospace" font-size="9" fill="#667044" letter-spacing="1">
+    <text x="80" y="80">PLATE 02 — MORPHOGENESIS OF A PROJECT</text>
+    <text x="80" y="96" fill="#8B9863">FROM NATURAL VEIN TO DISTRIBUTED PROTOCOL</text>
+  </g>
+</svg>
+

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration — CampusCode Arena</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="assets/css/app-theme.css">
+  <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body>
+  <div class="auth-wrapper">
+    <!-- Header -->
+    <header class="auth-header">
+      <a href="index.html" class="auth-brand" title="Return to CampusCode Public Site">
+        <img src="assets/gradient-cc-logo.png" alt="CampusCode Logo" style="height:32px; width:auto; object-fit:contain; margin-right:8px;">
+        <span class="auth-brand-text">
+          <strong>CAMPUSCODE</strong>
+          <small>HACKATHON ARENA</small>
+        </span>
+      </a>
+      <a href="index.html" class="auth-back-link">
+        <span>←</span> BACK TO PUBLIC SITE
+      </a>
+    </header>
+
+    <!-- Main Container -->
+    <main class="auth-container">
+      <!-- Storytelling Left Column -->
+      <section class="auth-story">
+        <div class="auth-status-pill">
+          <span class="auth-status-dot"></span>
+          <span>CAMPUSCODE / STUDENT ONBOARDING</span>
+        </div>
+
+        <h1 class="auth-title">
+          Join the<br><span>Ecosystem.</span>
+        </h1>
+
+        <p class="auth-desc">
+          Create your verified student builder identity. Compete in national college hackathons, connect with cross-disciplinary teammates via HackMate, and earn cryptographically verified credentials.
+        </p>
+
+        <!-- Warm Feature Card -->
+        <div class="auth-feature-card">
+          <div class="auth-feature-card-header">
+            <span class="auth-feature-tag">STUDENT ACCREDITATION</span>
+            <span class="auth-feature-badge">VERIFIED PASS</span>
+          </div>
+          <h4>Cryptographic Digital Student ID</h4>
+          <p>
+            Every registered builder receives an instant verifiable digital passport and QR code recognized across all CampusCode physical and online hackathons.
+          </p>
+        </div>
+
+        <div class="auth-pillars">
+          <div class="auth-pillar-pill"><span>01</span> VERIFIED IDENTITIES</div>
+          <div class="auth-pillar-pill"><span>02</span> HACKMATE MATCHING</div>
+          <div class="auth-pillar-pill"><span>03</span> STIPEND INTERNSHIPS</div>
+        </div>
+      </section>
+
+      <!-- Auth Card Right Column -->
+      <section class="auth-card">
+        <!-- Step 1: Account Info -->
+        <div id="step1Container">
+          <div class="auth-card-top">
+            <span>REGISTRATION</span>
+            <span class="font-mono">STEP 01 / 02</span>
+          </div>
+
+          <div class="auth-card-head" style="margin-top: 14px; margin-bottom: 18px;">
+            <h2>Create Account</h2>
+            <p>Enter your student information to generate your Campus ID.</p>
+          </div>
+
+          <div id="regAlert" class="auth-alert" role="alert"></div>
+
+          <form class="auth-form" onsubmit="handleStep1Submit(event)">
+            <div class="form-group">
+              <label for="regName">FULL NAME</label>
+              <div class="input-container">
+                <span class="input-prefix">◇</span>
+                <input type="text" id="regName" placeholder="e.g. Sai Harshith" value="Sai Harshith" required autocomplete="name">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regCollege">COLLEGE / UNIVERSITY</label>
+              <div class="input-container">
+                <span class="input-prefix">🏛</span>
+                <input type="text" id="regCollege" placeholder="e.g. College of Engineering, Guindy" value="College of Engineering, Guindy" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regEmail">EMAIL ADDRESS</label>
+              <div class="input-container">
+                <span class="input-prefix">@</span>
+                <input type="email" id="regEmail" placeholder="you@example.com" value="sai@campuscode.co.in" required autocomplete="email">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>ACCOUNT TYPE</label>
+              <div class="role-pill-row">
+                <span class="role-badge">🎓 VERIFIED STUDENT</span>
+                <span class="role-info-note">Organizers: email support@campuscode.co.in</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regPassword">PASSWORD</label>
+              <div class="input-container">
+                <span class="input-prefix">✦</span>
+                <input type="password" id="regPassword" placeholder="Minimum 8 characters" value="password123" required autocomplete="new-password">
+                <button type="button" class="btn-toggle-visibility" onclick="togglePasswordVisibility('regPassword', this)">SHOW</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regPasswordConfirm">CONFIRM PASSWORD</label>
+              <div class="input-container">
+                <span class="input-prefix">✦</span>
+                <input type="password" id="regPasswordConfirm" placeholder="Repeat password" value="password123" required autocomplete="new-password">
+                <button type="button" class="btn-toggle-visibility" onclick="togglePasswordVisibility('regPasswordConfirm', this)">SHOW</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regCaptchaInput">SECURITY VERIFICATION</label>
+              <div class="captcha-container">
+                <div class="captcha-badge" id="regCaptchaCode">8M3Q1</div>
+                <button type="button" class="btn-captcha-refresh" onclick="refreshRegCaptcha()" title="Generate new code">↻ NEW</button>
+                <div class="input-container captcha-input-field">
+                  <input type="text" id="regCaptchaInput" placeholder="Enter code" required maxlength="6" autocomplete="off">
+                </div>
+              </div>
+            </div>
+
+            <div class="checkbox-field">
+              <input type="checkbox" id="regAgeConfirm" checked required>
+              <label for="regAgeConfirm">I confirm that I am <strong>18 years of age or older</strong> and agree to the CampusCode Code of Conduct.</label>
+            </div>
+
+            <button type="submit" class="btn-auth-submit">
+              <span>CONTINUE TO VERIFICATION</span>
+              <span>↗</span>
+            </button>
+          </form>
+
+          <div class="auth-links-row" style="margin-top: 14px;">
+            <span>ALREADY REGISTERED?</span>
+            <a href="login.html" class="highlight">LOG IN HERE →</a>
+          </div>
+        </div>
+
+        <!-- Step 2: OTP Verification -->
+        <div id="step2Container" class="otp-container" style="display: none;">
+          <div class="auth-card-top">
+            <span>EMAIL VERIFICATION</span>
+            <span class="font-mono">STEP 02 / 02</span>
+          </div>
+
+          <div class="auth-card-head" style="margin-top: 10px;">
+            <h2>Enter 6-Digit Code</h2>
+            <p>We've dispatched a security passcode to <strong id="displayTargetEmail" style="color:var(--cc-primary)">sai@campuscode.co.in</strong>.</p>
+          </div>
+
+          <div id="otpAlert" class="auth-alert" role="alert"></div>
+
+          <div class="otp-box-row" id="otpBoxRow">
+            <input type="text" maxlength="1" class="otp-input-digit" id="otp1" value="6" autocomplete="off">
+            <input type="text" maxlength="1" class="otp-input-digit" id="otp2" value="9" autocomplete="off">
+            <input type="text" maxlength="1" class="otp-input-digit" id="otp3" value="4" autocomplete="off">
+            <input type="text" maxlength="1" class="otp-input-digit" id="otp4" value="2" autocomplete="off">
+            <input type="text" maxlength="1" class="otp-input-digit" id="otp5" value="1" autocomplete="off">
+            <input type="text" maxlength="1" class="otp-input-digit" id="otp6" value="8" autocomplete="off">
+          </div>
+
+          <div style="font-family:var(--cc-font-mono);font-size:11.5px;color:var(--cc-ink-muted);background:var(--cc-surface-muted);padding:8px 12px;border-radius:var(--cc-radius-md);border:1px solid var(--cc-border);">
+            💡 Demo code is: <strong style="color:var(--cc-primary)">694218</strong> (Pre-filled for evaluator convenience)
+          </div>
+
+          <button type="button" class="btn-auth-submit" onclick="verifyOtpAndFinish()">
+            <span>COMPLETE REGISTRATION</span>
+            <span>↗</span>
+          </button>
+
+          <div class="auth-links-row">
+            <a href="#" onclick="backToStep1(); return false;">← EDIT DETAILS</a>
+            <a href="#" onclick="resendOtp(); return false;">RESEND CODE</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="auth-footer">
+      <span>CAMPUSCODE / STUDENT ACCREDITATION</span>
+      <span>● VERIFIED NETWORK</span>
+      <span>2026</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    let activeRegCaptcha = '';
+    let pendingUserData = {};
+
+    function refreshRegCaptcha() {
+      activeRegCaptcha = genCaptcha();
+      const el = document.getElementById('regCaptchaCode');
+      if (el) el.innerText = activeRegCaptcha;
+      const input = document.getElementById('regCaptchaInput');
+      if (input) input.value = '';
+    }
+
+    function togglePasswordVisibility(fieldId, btn) {
+      const field = document.getElementById(fieldId);
+      if (!field) return;
+      if (field.type === 'password') {
+        field.type = 'text';
+        btn.innerText = 'HIDE';
+      } else {
+        field.type = 'password';
+        btn.innerText = 'SHOW';
+      }
+    }
+
+    function showRegAlert(msg, isError = true) {
+      const el = document.getElementById('regAlert');
+      if (!el) return;
+      el.className = 'auth-alert ' + (isError ? 'error' : 'success');
+      el.innerText = msg;
+      el.style.display = 'flex';
+    }
+
+    function showOtpAlert(msg, isError = true) {
+      const el = document.getElementById('otpAlert');
+      if (!el) return;
+      el.className = 'auth-alert ' + (isError ? 'error' : 'success');
+      el.innerText = msg;
+      el.style.display = 'flex';
+    }
+
+    function handleStep1Submit(e) {
+      e.preventDefault();
+      const captchaVal = document.getElementById('regCaptchaInput').value.trim();
+      if (captchaVal.toUpperCase() !== activeRegCaptcha.toUpperCase()) {
+        showRegAlert('Invalid verification characters. Please re-enter the code.');
+        refreshRegCaptcha();
+        return;
+      }
+
+      const p1 = document.getElementById('regPassword').value;
+      const p2 = document.getElementById('regPasswordConfirm').value;
+      if (p1 !== p2) {
+        showRegAlert('Passwords do not match. Please verify your entries.');
+        return;
+      }
+
+      const name = document.getElementById('regName').value.trim();
+      const college = document.getElementById('regCollege').value.trim();
+      const email = document.getElementById('regEmail').value.trim();
+
+      pendingUserData = {
+        name: name,
+        email: email,
+        college: college,
+        role: 'STUDENT',
+        campusId: 'CC-2026-' + Math.floor(1000 + Math.random() * 9000),
+        bio: 'Student builder at ' + college + '. Interested in hackathons, collaborative coding, and shipping products.',
+        skills: 'JavaScript, React, Node.js, Python, Git',
+        avatarType: 'mascot',
+        mascotId: 'code-fox'
+      };
+
+      document.getElementById('displayTargetEmail').innerText = email;
+      document.getElementById('step1Container').style.display = 'none';
+      document.getElementById('step2Container').style.display = 'flex';
+      setupOtpInputHandlers();
+    }
+
+    function backToStep1() {
+      document.getElementById('step2Container').style.display = 'none';
+      document.getElementById('step1Container').style.display = 'block';
+    }
+
+    function resendOtp() {
+      showOtpAlert('New verification code dispatched: 694218', false);
+    }
+
+    function setupOtpInputHandlers() {
+      const inputs = document.querySelectorAll('.otp-input-digit');
+      inputs.forEach((input, idx) => {
+        input.addEventListener('keyup', (e) => {
+          if (e.key >= '0' && e.key <= '9') {
+            if (idx < inputs.length - 1) inputs[idx + 1].focus();
+          } else if (e.key === 'Backspace') {
+            if (idx > 0 && !input.value) inputs[idx - 1].focus();
+          }
+        });
+        input.addEventListener('paste', (e) => {
+          e.preventDefault();
+          const pasteData = (e.clipboardData || window.clipboardData).getData('text').trim();
+          if (/^\d{6}$/.test(pasteData)) {
+            for (let i = 0; i < 6; i++) {
+              inputs[i].value = pasteData[i];
+            }
+            inputs[5].focus();
+          }
+        });
+      });
+    }
+
+    function verifyOtpAndFinish() {
+      const enteredCode = 
+        document.getElementById('otp1').value +
+        document.getElementById('otp2').value +
+        document.getElementById('otp3').value +
+        document.getElementById('otp4').value +
+        document.getElementById('otp5').value +
+        document.getElementById('otp6').value;
+
+      if (enteredCode !== '694218') {
+        showOtpAlert('Incorrect code. Demo pass code is 694218.');
+        return;
+      }
+
+      const existing = getUser();
+      const updated = { ...existing, ...pendingUserData };
+      setUser(updated);
+
+      showOtpAlert('Identity verified! Generating your student arena profile...', false);
+      setTimeout(() => {
+        window.location.href = 'student.html';
+      }, 700);
+    }
+
+    refreshRegCaptcha();
+  </script>
+</body>
+</html>

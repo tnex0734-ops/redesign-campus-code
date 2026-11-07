@@ -1,0 +1,204 @@
+/* ==========================================================================
+   CampusCode Design System Bridge — Provisional Semantic Token Layer
+   Based on docs/05-design-system-bridge.md and reference-assets/dashboard-moodboard.png
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Surface & Canvas System — CampusCode White Spectrum (70%+ Neutral White) */
+  --cc-canvas: #F4F5F7;            /* Dominant neutral workspace canvas */
+  --cc-surface: #FFFFFF;           /* Pristine card surfaces, modals, panels */
+  --cc-surface-elevated: #FFFFFF;  /* Popovers, dropdowns, floating modals */
+  --cc-surface-warm: #F8F9FB;      /* Secondary surface */
+  --cc-surface-warm-hover: #F0F2F6;/* Surface hover state */
+  --cc-surface-muted: #F8F9FB;     /* Subtle muted field backgrounds, table heads */
+  --cc-surface-inset: #F0F2F5;     /* Inset inputs, code containers */
+  --cc-surface-blue: #EDF1FF;      /* Soft blue accent region */
+  --cc-surface-peach: #FFF0E8;     /* Soft peach/warm accent region */
+  --cc-surface-indigo: #F0EEFA;    /* Soft indigo accent region */
+
+  /* Ink & Typography Hierarchy */
+  --cc-ink: #17191F;               /* Crisp primary typography */
+  --cc-ink-secondary: #343842;     /* Supporting paragraphs, tab labels */
+  --cc-ink-muted: #6E7480;         /* Metadata, secondary labels */
+  --cc-ink-faint: #9399A3;         /* Placeholders, disabled states */
+  --cc-ink-inverse: #FFFFFF;       /* Inverted text on dark/cobalt surfaces */
+
+  /* Borders & Dividers */
+  --cc-border: #E6E8ED;            /* Standard hairline card borders */
+  --cc-border-subtle: #F0F2F5;     /* Interior item dividers */
+  --cc-border-strong: #D8DCE4;     /* Emphasized borders, active inputs */
+
+  /* Brand Colors (Sarvam-inspired spectrum translation) */
+  --cc-blue: #273FC5;              /* Primary interactive blue accent */
+  --cc-blue-bright: #5265DA;       /* Secondary bright blue */
+  --cc-indigo: #6855AD;            /* Transitional indigo */
+  --cc-orange: #F47742;            /* Warm orange for deadlines & highlights */
+  --cc-orange-deep: #D95F2F;       /* High-contrast orange */
+
+  /* Semantic Aliases */
+  --cc-primary: #273FC5;           /* Primary interaction / buttons / active states */
+  --cc-primary-hover: #1E33A3;     /* Hover state */
+  --cc-primary-subtle: #EDF1FF;    /* Soft blue tint for active chips / highlights */
+  --cc-primary-border: #BCD0F7;    /* Blue accent border */
+
+  /* Warm Peach / Saffron Feature Accents */
+  --cc-warm-accent: #F47742;       /* Warm orange highlight */
+  --cc-warm-surface: #FFF0E8;      /* Warm feature card surface */
+  --cc-warm-border: #FCD8C7;       /* Warm feature card border */
+  --cc-warm-text: #B84E1A;         /* High-contrast text on warm surface */
+
+  /* Semantic State Colours */
+  --cc-success: #21845F;           /* Verified / Passed / Qualified */
+  --cc-success-bg: #EAF6F0;        /* Success container background */
+  --cc-success-border: #BCE2CF;    /* Success border */
+
+  --cc-warning: #B86A25;           /* Pending / Review / Warning */
+  --cc-warning-bg: #FDF4EB;        /* Warning container background */
+  --cc-warning-border: #F7D7B9;    /* Warning border */
+
+  --cc-danger: #C74646;            /* Errors / Destructive / Expired */
+  --cc-danger-bg: #FDECEC;         /* Danger container background */
+  --cc-danger-border: #F8BFBF;     /* Danger border */
+
+  --cc-info: #273FC5;              /* Neutral announcements / info */
+  --cc-info-bg: #EDF1FF;           /* Info container background */
+  --cc-info-border: #BCD0F7;       /* Info border */
+
+  /* CampusCode Brand Signature (Preserved without competing) */
+  --cc-brand-violet: #6E5BE8;
+  --cc-brand-lime: #90D326;
+
+  /* Typography Roles */
+  --cc-font-display: 'Instrument Serif', Georgia, serif;
+  --cc-font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --cc-font-mono: 'IBM Plex Mono', Menlo, Consolas, monospace;
+
+  /* Spacing Scale (8px base) */
+  --cc-space-1: 4px;
+  --cc-space-2: 8px;
+  --cc-space-3: 12px;
+  --cc-space-4: 16px;
+  --cc-space-5: 20px;
+  --cc-space-6: 24px;
+  --cc-space-8: 32px;
+  --cc-space-10: 40px;
+  --cc-space-12: 48px;
+  --cc-space-16: 64px;
+
+  /* Geometry & Radius Scale */
+  --cc-radius-sm: 6px;             /* Badges, micro chips */
+  --cc-radius-md: 10px;            /* Buttons, inputs, tab pills */
+  --cc-radius-lg: 14px;            /* Standard cards, panels */
+  --cc-radius-xl: 20px;            /* Feature cards, hero banners */
+  --cc-radius-full: 9999px;        /* Round avatars, status dots */
+
+  /* Elevation & Shadows (Restrained) */
+  --cc-shadow-sm: 0 1px 2px rgba(28, 27, 25, 0.04);
+  --cc-shadow-md: 0 4px 12px rgba(28, 27, 25, 0.05), 0 1px 3px rgba(28, 27, 25, 0.03);
+  --cc-shadow-lg: 0 12px 28px rgba(28, 27, 25, 0.08), 0 2px 6px rgba(28, 27, 25, 0.04);
+  --cc-shadow-modal: 0 24px 48px rgba(28, 27, 25, 0.16), 0 4px 12px rgba(28, 27, 25, 0.06);
+
+  /* Layout Dimensions */
+  --cc-sidebar-width: 250px;
+  --cc-topbar-height: 64px;
+
+  /* Transitions */
+  --cc-transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --cc-transition-base: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Global Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: var(--cc-canvas);
+}
+
+body {
+  font-family: var(--cc-font-sans);
+  color: var(--cc-ink);
+  background-color: var(--cc-canvas);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--cc-primary);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Sarvam-Inspired Continuous Spectrum Color System & Gradients
+   ========================================================================== */
+:root {
+  --sarvam-indigo: #1B365D;
+  --sarvam-blue: #2563EB;
+  --sarvam-sky: #38BDF8;
+  --sarvam-peach: #E0AA85;
+  --sarvam-orange: #EE7C38;
+  --sarvam-terracotta: #C84B1A;
+  --sarvam-spectrum: linear-gradient(135deg, #1B365D 0%, #2563EB 24%, #38BDF8 44%, #E0AA85 64%, #EE7C38 84%, #C84B1A 100%);
+  --sarvam-spectrum-h: linear-gradient(90deg, #1B365D 0%, #2563EB 24%, #38BDF8 44%, #E0AA85 64%, #EE7C38 84%, #C84B1A 100%);
+  --sarvam-glow: 0 4px 20px rgba(37, 99, 235, 0.15);
+}
+
+.sarvam-gradient-text {
+  background: var(--sarvam-spectrum);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.sarvam-accent-bar {
+  height: 3px;
+  width: 100%;
+  background: var(--sarvam-spectrum-h);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--cc-ink);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* Display editorial headings */
+.font-display {
+  font-family: var(--cc-font-display);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Monospace numerals & metadata */
+.font-mono {
+  font-family: var(--cc-font-mono);
+  font-feature-settings: "tnum" 1;
+}
+
+/* Scrollbar polish */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cc-border);
+  border-radius: var(--cc-radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cc-border-strong);
+}
+

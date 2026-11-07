@@ -1,0 +1,44 @@
+<svg viewBox="0 0 64 74" fill="none" xmlns="http://www.w3.org/2000/svg" class="footer-trash-bin">
+  <defs>
+    <linearGradient id="canRimGrad" x1="0" y1="0" x2="64" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C5C5D0"/>
+      <stop offset="30%" stop-color="#EDEDF4"/>
+      <stop offset="70%" stop-color="#C5C5D0"/>
+      <stop offset="100%" stop-color="#A5A5B2"/>
+    </linearGradient>
+    <linearGradient id="canBodyGrad" x1="0" y1="0" x2="64" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E8E8F0" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#D0D0DC" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#B2B2C0" stop-opacity="0.9"/>
+    </linearGradient>
+    <filter id="trashShadow" x="-20%" y="-10%" width="140%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0F0F12" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Ground Drop Shadow -->
+  <ellipse cx="32" cy="70" rx="20" ry="3.5" fill="#0F0F12" opacity="0.12"/>
+
+  <!-- Crumpled Papers Spilling Out Top -->
+  <!-- Blue Paper Sheet -->
+  <path d="M16 14L22 4L32 10L26 18Z" fill="#38BDF8" transform="rotate(-15 24 10)"/>
+  <!-- Yellow Document Sheet -->
+  <path d="M24 16L32 2L42 8L34 20Z" fill="#FBBF24" transform="rotate(8 33 10)"/>
+  <!-- Red/Pink Crumpled Note -->
+  <path d="M36 18L44 6L52 14L42 22Z" fill="#F87171" transform="rotate(18 44 14)"/>
+  <!-- White Sheet -->
+  <path d="M22 18L26 8L38 12L32 22Z" fill="#FFFFFF" stroke="#E2E2EA" stroke-width="0.8"/>
+  <!-- Green Neon Ticket -->
+  <rect x="28" y="6" width="12" height="7" rx="1" fill="#00F076" transform="rotate(-25 34 9)"/>
+
+  <!-- Trash Can Main Mesh Cylinder Body -->
+  <path d="M10 20L15 67C15 68.6 22.6 70 32 70C41.4 70 49 68.6 49 67L54 20Z" fill="url(#canBodyGrad)" filter="url(#trashShadow)"/>
+
+  <!-- Translucent Mesh Pattern Lines -->
+  <path d="M11 28C16 32 48 32 53 28M12 37C17 41 47 41 52 37M13 46C18 50 46 50 51 46M14 55C19 59 45 59 50 55" stroke="#FFFFFF" stroke-width="1.2" opacity="0.6"/>
+  <path d="M17 22L20 68M25 22L27 69M32 22L32 70M39 22L37 69M47 22L44 68" stroke="#FFFFFF" stroke-width="0.8" opacity="0.4"/>
+
+  <!-- Top Opening Metallic Rim -->
+  <ellipse cx="32" cy="20" rx="22" ry="5.5" fill="none" stroke="url(#canRimGrad)" stroke-width="2.5"/>
+</svg>
+

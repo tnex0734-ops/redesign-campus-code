@@ -1,0 +1,266 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" width="100%" height="100%" fill="none" aria-hidden="true">
+  <defs>
+    <!-- Gradients for realistic botanical depth -->
+    <linearGradient id="forestLeafGrad" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#2F3B1F"/>
+      <stop offset="35%" stop-color="#3A4926"/>
+      <stop offset="70%" stop-color="#495B30"/>
+      <stop offset="100%" stop-color="#28331A"/>
+    </linearGradient>
+
+    <linearGradient id="midLeafGrad" x1="20%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#606E41" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#7B8B54" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#4F5D34" stop-opacity="0.55"/>
+    </linearGradient>
+
+    <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E5A6"/>
+      <stop offset="40%" stop-color="#C6A84A"/>
+      <stop offset="85%" stop-color="#9C812D"/>
+      <stop offset="100%" stop-color="#E5CA68"/>
+    </linearGradient>
+
+    <filter id="brassGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="12" dy="18" stdDeviation="16" flood-color="#252A1D" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- BACKGROUND REGISTRATION GRID MARKS -->
+  <g class="specimen-grid-marks" stroke="#C8C5A8" stroke-width="1" opacity="0.6">
+    <path d="M 120 80 L 120 100 M 110 90 L 130 90"/>
+    <path d="M 450 80 L 450 100 M 440 90 L 460 90"/>
+    <path d="M 780 80 L 780 100 M 770 90 L 790 90"/>
+    <path d="M 120 450 L 120 470 M 110 460 L 130 460"/>
+    <path d="M 780 450 L 780 470 M 770 460 L 790 460"/>
+    <path d="M 120 810 L 120 830 M 110 820 L 130 820"/>
+    <path d="M 450 810 L 450 830 M 440 820 L 460 820"/>
+    <path d="M 780 810 L 780 830 M 770 820 L 790 820"/>
+  </g>
+
+  <!-- LAYER 2: TRANSLUCENT MIDDLE LEAF (Asymmetrical specimen silhouetted behind) -->
+  <g class="botanical-translucent-leaf" filter="url(#subtleShadow)">
+    <!-- Leaf Blade -->
+    <path d="M 280 240 
+             C 340 180, 480 160, 560 210
+             C 620 250, 650 340, 610 440
+             C 570 540, 490 620, 390 670
+             C 320 705, 270 660, 260 590
+             C 245 490, 220 310, 280 240 Z" 
+          fill="url(#midLeafGrad)" 
+          stroke="#55623B" 
+          stroke-width="1.2" 
+          stroke-dasharray="8 3"
+          opacity="0.85"/>
+
+    <!-- Midrib & Vein skeleton for translucent leaf -->
+    <path d="M 270 240 Q 380 410 400 660" 
+          stroke="#4D5A32" 
+          stroke-width="2" 
+          fill="none" 
+          opacity="0.7"/>
+
+    <g stroke="#5F6F42" stroke-width="1" fill="none" opacity="0.6">
+      <path d="M 310 300 Q 420 280 500 240"/>
+      <path d="M 335 360 Q 460 345 570 305"/>
+      <path d="M 355 420 Q 500 415 600 370"/>
+      <path d="M 370 480 Q 490 485 575 460"/>
+      <path d="M 385 540 Q 470 560 530 540"/>
+      <path d="M 395 600 Q 440 625 470 610"/>
+
+      <path d="M 300 310 Q 260 350 250 400"/>
+      <path d="M 325 380 Q 275 440 255 500"/>
+      <path d="M 345 450 Q 295 510 270 570"/>
+    </g>
+  </g>
+
+  <!-- LAYER 1: FOREGROUND PRIMARY FOREST SPECIMEN LEAF (Rich, anatomical, painterly) -->
+  <g class="botanical-primary-leaf" filter="url(#subtleShadow)">
+    <!-- Base Leaf Silhouette -->
+    <path d="M 170 360 
+             C 210 280, 290 270, 360 320
+             C 410 355, 430 420, 420 500
+             C 410 590, 350 690, 300 760
+             C 285 780, 270 790, 255 770
+             C 220 720, 180 630, 155 530
+             C 140 460, 145 400, 170 360 Z" 
+          fill="url(#forestLeafGrad)" 
+          stroke="#252F17" 
+          stroke-width="1.8"/>
+
+    <!-- Shading depth contour -->
+    <path d="M 185 375 
+             C 220 315, 280 305, 335 340
+             C 380 370, 395 425, 385 490
+             C 375 570, 325 660, 285 725
+             C 260 670, 210 575, 185 490
+             C 170 435, 172 400, 185 375 Z"
+          fill="#3E4E27" 
+          opacity="0.35"/>
+
+    <!-- Primary Midrib Stem -->
+    <path class="botanical-draw-path midrib-primary" 
+          d="M 215 320 C 265 420, 290 560, 275 770" 
+          stroke="#9EAE74" 
+          stroke-width="3.5" 
+          stroke-linecap="round" 
+          fill="none"/>
+
+    <!-- Leaf Anatomical Venation Network (Pale Sage Veins) -->
+    <g class="botanical-veins" stroke="#B4C58B" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- Right Lateral Veins & Branchlets -->
+      <path class="botanical-draw-path" stroke-width="2.2" d="M 235 370 C 285 365, 335 360, 380 375"/>
+      <path stroke-width="1.2" opacity="0.8" d="M 285 366 Q 315 345 350 340"/>
+      <path stroke-width="1" opacity="0.6" d="M 330 368 Q 360 385 385 400"/>
+
+      <path class="botanical-draw-path" stroke-width="2.4" d="M 252 440 C 305 435, 360 445, 405 470"/>
+      <path stroke-width="1.2" opacity="0.8" d="M 305 438 Q 340 415 380 415"/>
+      <path stroke-width="1" opacity="0.6" d="M 345 448 Q 375 480 395 505"/>
+
+      <path class="botanical-draw-path" stroke-width="2.2" d="M 268 515 C 315 520, 360 545, 390 585"/>
+      <path stroke-width="1.2" opacity="0.8" d="M 315 522 Q 350 500 375 510"/>
+      <path stroke-width="1" opacity="0.6" d="M 335 538 Q 355 575 365 615"/>
+
+      <path class="botanical-draw-path" stroke-width="2.0" d="M 276 595 C 315 605, 345 640, 360 680"/>
+      <path stroke-width="1.1" opacity="0.7" d="M 310 605 Q 330 635 335 660"/>
+
+      <path class="botanical-draw-path" stroke-width="1.8" d="M 278 670 C 300 685, 318 715, 325 745"/>
+
+      <!-- Left Lateral Veins & Branchlets -->
+      <path class="botanical-draw-path" stroke-width="2.0" d="M 225 385 C 195 400, 175 425, 160 455"/>
+      <path stroke-width="1.1" opacity="0.7" d="M 205 395 Q 185 380 170 385"/>
+
+      <path class="botanical-draw-path" stroke-width="2.2" d="M 245 455 C 210 480, 180 515, 165 560"/>
+      <path stroke-width="1.1" opacity="0.7" d="M 218 472 Q 190 460 175 480"/>
+
+      <path class="botanical-draw-path" stroke-width="2.0" d="M 262 535 C 230 570, 205 615, 195 665"/>
+      <path stroke-width="1" opacity="0.7" d="M 235 558 Q 210 550 195 580"/>
+
+      <path class="botanical-draw-path" stroke-width="1.8" d="M 272 615 C 248 650, 230 685, 225 725"/>
+    </g>
+  </g>
+
+  <!-- LAYER 3: THE GOLDEN / BRASS CIRCUIT BOTANICAL SPECIMEN (From Reference 02: Glowing Digital Veins) -->
+  <g class="botanical-brass-specimen" filter="url(#brassGlow)">
+    <!-- Brass Leaf Silhouette (Fine Wireframe Botanical Tracing) -->
+    <path d="M 340 120 
+             C 410 70, 520 60, 590 110
+             C 660 160, 690 250, 660 340
+             C 630 430, 570 520, 480 580
+             C 430 610, 390 590, 380 530
+             C 365 440, 315 280, 340 120 Z" 
+          stroke="url(#brassGrad)" 
+          stroke-width="1.6" 
+          stroke-dasharray="6 2" 
+          fill="none" 
+          opacity="0.8"/>
+
+    <!-- Central Brass Spine / Digital Bus -->
+    <path class="botanical-draw-path brass-spine" 
+          d="M 380 100 
+             C 430 180, 470 290, 480 430 
+             C 485 500, 475 560, 460 610" 
+          stroke="url(#brassGrad)" 
+          stroke-width="2.6" 
+          stroke-linecap="round" 
+          fill="none"/>
+
+    <!-- Digital Branching Circuit Veins -->
+    <g stroke="url(#brassGrad)" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- Upper Cluster -->
+      <path class="botanical-draw-path" stroke-width="1.8" d="M 405 145 C 475 140, 550 135, 600 160"/>
+      <path stroke-width="1.2" d="M 475 142 L 505 115 L 545 105"/>
+      <path stroke-width="1.2" d="M 540 145 L 570 175 L 615 170"/>
+
+      <!-- Mid Cluster -->
+      <path class="botanical-draw-path" stroke-width="2" d="M 435 220 C 510 220, 585 235, 640 270"/>
+      <path stroke-width="1.3" d="M 505 220 L 540 195 L 595 195"/>
+      <path stroke-width="1.3" d="M 570 230 L 610 260 L 650 250"/>
+
+      <!-- Lower Branching -->
+      <path class="botanical-draw-path" stroke-width="1.9" d="M 460 310 C 530 320, 595 350, 630 400"/>
+      <path stroke-width="1.2" d="M 525 315 L 565 295 L 610 300"/>
+      <path stroke-width="1.2" d="M 580 340 L 610 375 L 635 370"/>
+
+      <path class="botanical-draw-path" stroke-width="1.8" d="M 475 400 C 530 420, 575 460, 595 510"/>
+      <path stroke-width="1.2" d="M 530 415 L 565 445 L 585 440"/>
+
+      <path class="botanical-draw-path" stroke-width="1.6" d="M 480 480 C 515 510, 545 550, 550 590"/>
+
+      <!-- Leftward Digital Branches (Connecting towards the forest leaf) -->
+      <path class="botanical-draw-path" stroke-width="1.7" d="M 390 160 C 350 180, 310 215, 290 255"/>
+      <path stroke-width="1.2" d="M 355 175 L 325 160 L 295 175"/>
+
+      <path class="botanical-draw-path" stroke-width="1.8" d="M 425 240 C 375 270, 330 315, 305 370"/>
+      <path stroke-width="1.2" d="M 380 265 L 340 260 L 310 290"/>
+
+      <path class="botanical-draw-path" stroke-width="1.7" d="M 455 330 C 405 370, 365 425, 345 480"/>
+      <path stroke-width="1.1" d="M 410 365 L 370 375 L 340 410"/>
+    </g>
+
+    <!-- GLOWING CIRCUIT / BOTANICAL JUNCTION NODES (Reference 02 Gold Nodes) -->
+    <g class="brass-nodes" fill="#FFF2B2" stroke="#A68732" stroke-width="1.5">
+      <circle cx="380" cy="100" r="4.5" />
+      <circle cx="405" cy="145" r="3.5" />
+      <circle cx="475" cy="142" r="3.0" />
+      <circle cx="545" cy="105" r="3.0" />
+      <circle cx="600" cy="160" r="4.0" />
+
+      <circle cx="435" cy="220" r="4.0" />
+      <circle cx="505" cy="220" r="3.5" />
+      <circle cx="595" cy="195" r="3.0" />
+      <circle cx="640" cy="270" r="4.5" />
+
+      <circle cx="460" cy="310" r="4.0" />
+      <circle cx="565" cy="295" r="3.0" />
+      <circle cx="630" cy="400" r="4.0" />
+
+      <circle cx="475" cy="400" r="3.5" />
+      <circle cx="595" cy="510" r="3.5" />
+
+      <circle cx="480" cy="430" r="5.0" fill="#FFFAED" stroke="#C6A84A" stroke-width="2"/>
+      <circle cx="460" cy="610" r="4.0" />
+
+      <!-- Left Nodes -->
+      <circle cx="290" cy="255" r="3.5" />
+      <circle cx="305" cy="370" r="3.5" />
+      <circle cx="345" cy="480" r="3.0" />
+    </g>
+  </g>
+
+  <!-- BOTANICAL FIELD-NOTE STAMP & SPECIMEN ANNOTATIONS -->
+  <g class="specimen-editorial-annotations" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="10" fill="#667044" letter-spacing="1.2">
+    <!-- Top-left taxonomic coordinates -->
+    <text x="80" y="70" font-weight="600">FIG. 01 — BOTANICAL CODE SYSTEM</text>
+    <text x="80" y="88" fill="#8B9863">CHLOROPHYTA DIGITALIS · CHENNAI 13.0827°N 80.2707°E</text>
+    
+    <!-- Scale Ruler Mark -->
+    <g transform="translate(80, 110)" stroke="#8B9863" stroke-width="1">
+      <line x1="0" y1="0" x2="100" y2="0"/>
+      <line x1="0" y1="-4" x2="0" y2="4"/>
+      <line x1="25" y1="-2" x2="25" y2="2"/>
+      <line x1="50" y1="-4" x2="50" y2="4"/>
+      <line x1="75" y1="-2" x2="75" y2="2"/>
+      <line x1="100" y1="-4" x2="100" y2="4"/>
+      <text x="110" y="4" stroke="none" fill="#8B9863" font-size="8">100 MM</text>
+    </g>
+
+    <!-- Bottom Right Plate Registry Stamp -->
+    <g transform="translate(620, 740)">
+      <rect x="0" y="0" width="180" height="70" fill="#F8F7EB" stroke="#C8C5A8" stroke-width="1" rx="2"/>
+      <text x="14" y="22" font-size="9" font-weight="600" fill="#252A1D">PLATE CC-2026 / HERBARIUM</text>
+      <text x="14" y="38" font-size="8" fill="#667044">TYPE: HACKATHON ARENA</text>
+      <text x="14" y="52" font-size="8" fill="#8B9863">ORGANISM: IDEA → SHIPPED</text>
+      <line x1="14" y1="58" x2="166" y2="58" stroke="#D5D2B8" stroke-width="0.8"/>
+    </g>
+  </g>
+</svg>
+

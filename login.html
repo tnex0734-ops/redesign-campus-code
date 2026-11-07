@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Login — CampusCode Arena</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="assets/css/app-theme.css">
+  <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body>
+  <div class="auth-wrapper">
+    <!-- Header -->
+    <header class="auth-header">
+      <a href="index.html" class="auth-brand" title="Return to CampusCode Public Site">
+        <img src="assets/gradient-cc-logo.png" alt="CampusCode Logo" style="height:32px; width:auto; object-fit:contain; margin-right:8px;">
+        <span class="auth-brand-text">
+          <strong>CAMPUSCODE</strong>
+          <small>HACKATHON ARENA</small>
+        </span>
+      </a>
+      <a href="index.html" class="auth-back-link">
+        <span>←</span> BACK TO PUBLIC SITE
+      </a>
+    </header>
+
+    <!-- Main Grid -->
+    <main class="auth-container">
+      <!-- Storytelling Left Column -->
+      <section class="auth-story">
+        <div class="auth-status-pill">
+          <span class="auth-status-dot"></span>
+          <span>CAMPUSCODE / AUTHENTICATION GATEWAY</span>
+        </div>
+
+        <h1 class="auth-title">
+          Enter the<br><span>Arena.</span>
+        </h1>
+
+        <p class="auth-desc">
+          Sign in to access your student workspace, manage project submissions, track live rounds, and collaborate with verified university builders across India.
+        </p>
+
+        <!-- Warm Feature Highlight Card (homage to reference moodboard) -->
+        <div class="auth-feature-card">
+          <div class="auth-feature-card-header">
+            <span class="auth-feature-tag">ACTIVE ROUND 1</span>
+            <span class="auth-feature-badge">LIVE EVENT</span>
+          </div>
+          <h4>ReBuild '26 — Reconstruction Hackathon</h4>
+          <p>
+            Submission window is open until 10:00 PM IST. Preflight your repository, verify demo reachability, and lock your submission code.
+          </p>
+        </div>
+
+        <div class="auth-pillars">
+          <div class="auth-pillar-pill"><span>01</span> BUILD FAITHFULLY</div>
+          <div class="auth-pillar-pill"><span>02</span> TEAM FORMATION</div>
+          <div class="auth-pillar-pill"><span>03</span> VERIFIED CREDENTIALS</div>
+        </div>
+      </section>
+
+      <!-- Auth Card Right Column -->
+      <section class="auth-card">
+        <div class="auth-card-top">
+          <span>STUDENT ACCESS</span>
+          <span class="font-mono">CC / AUTH-01</span>
+        </div>
+
+        <div class="auth-card-head">
+          <h2>Student Sign In</h2>
+          <p>Enter your credentials to enter your personal workspace.</p>
+        </div>
+
+        <div id="loginAlert" class="auth-alert" role="alert"></div>
+
+        <form class="auth-form" onsubmit="handleLoginSubmit(event)">
+          <div class="form-group">
+            <label for="loginEmail">REGISTERED EMAIL</label>
+            <div class="input-container">
+              <span class="input-prefix">@</span>
+              <input type="email" id="loginEmail" placeholder="you@example.com" value="sai@campuscode.co.in" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword">PASSWORD</label>
+            <div class="input-container">
+              <span class="input-prefix">✦</span>
+              <input type="password" id="loginPassword" placeholder="Enter your password" value="password123" required autocomplete="current-password">
+              <button type="button" class="btn-toggle-visibility" onclick="togglePasswordVisibility('loginPassword', this)">SHOW</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="captchaInput">SECURITY VERIFICATION</label>
+            <div class="captcha-container">
+              <div class="captcha-badge" id="captchaCode">7X9K2</div>
+              <button type="button" class="btn-captcha-refresh" onclick="refreshCaptcha()" title="Generate new code">↻ NEW</button>
+              <div class="input-container captcha-input-field">
+                <input type="text" id="captchaInput" placeholder="Enter code" required maxlength="6" autocomplete="off">
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-auth-submit">
+            <span>ENTER WORKSPACE</span>
+            <span>↗</span>
+          </button>
+        </form>
+
+        <button type="button" class="btn-auth-demo" onclick="quickDemoLogin()" title="Sign in immediately as demo student Sai Harshith">
+          <span>⚡</span>
+          <span>QUICK DEMO LOGIN (EVALUATORS)</span>
+        </button>
+
+        <div class="auth-links-row">
+          <a href="#" onclick="handleForgotPassword(); return false;">FORGOT PASSWORD?</a>
+          <a href="register.html" class="highlight">CREATE NEW ACCOUNT →</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="auth-footer">
+      <span>CAMPUSCODE / SECURE STUDENT PORTAL</span>
+      <span>● ENCRYPTED SESSION</span>
+      <span>2026</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    let activeCaptcha = '';
+
+    function refreshCaptcha() {
+      activeCaptcha = genCaptcha();
+      const el = document.getElementById('captchaCode');
+      if (el) el.innerText = activeCaptcha;
+      const input = document.getElementById('captchaInput');
+      if (input) input.value = '';
+    }
+
+    function togglePasswordVisibility(fieldId, btn) {
+      const field = document.getElementById(fieldId);
+      if (!field) return;
+      if (field.type === 'password') {
+        field.type = 'text';
+        btn.innerText = 'HIDE';
+      } else {
+        field.type = 'password';
+        btn.innerText = 'SHOW';
+      }
+    }
+
+    function showAlert(msg, isError = true) {
+      const el = document.getElementById('loginAlert');
+      if (!el) return;
+      el.className = 'auth-alert ' + (isError ? 'error' : 'success');
+      el.innerText = msg;
+      el.style.display = 'flex';
+    }
+
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      const inputCaptcha = document.getElementById('captchaInput').value.trim();
+      if (inputCaptcha.toUpperCase() !== activeCaptcha.toUpperCase()) {
+        showAlert('Invalid security code. Please enter the characters shown above.');
+        refreshCaptcha();
+        return;
+      }
+
+      const email = document.getElementById('loginEmail').value.trim();
+      const currentUser = getUser();
+      currentUser.email = email;
+      setUser(currentUser);
+
+      showAlert('Verification successful. Redirecting to workspace...', false);
+      setTimeout(() => {
+        window.location.href = 'student.html';
+      }, 500);
+    }
+
+    function handleForgotPassword() {
+      const email = document.getElementById('loginEmail').value.trim() || 'your email';
+      showAlert('Password reset link has been dispatched to ' + email + ' (Demo Simulation).', false);
+    }
+
+    // Initialize captcha on load
+    refreshCaptcha();
+  </script>
+</body>
+</html>
